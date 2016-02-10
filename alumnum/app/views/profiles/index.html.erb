@@ -2,6 +2,7 @@
 
 <h1>Listing Profiles</h1>
 
+
 <table>
   <thead>
     <tr>
@@ -22,7 +23,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.user.email %> </td>
+        <td><%= profile.user.first_name %> </td>
         <td><%= profile.headline %></td>
         <td><%= profile.image_url %></td>
         <td><%= profile.bio %></td>
