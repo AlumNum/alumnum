@@ -45,5 +45,11 @@
   <%= @profile.linkedin %>
 </p>
 
+
+
+<% @resume.each do |r| %>
+<%= r.title %><br>
+<% end %>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
