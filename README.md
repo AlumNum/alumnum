@@ -11,4 +11,4 @@
 + When you have changes ready to commit to the main repo,
 + `git add [files or .]`
 + `git commit -m 'descriptive commit message' `
-+ Open the page for the main repo on Github and create a new pull request
++ Open the page for YOUR FORK OF THE REPO on Github and create a new pull request
