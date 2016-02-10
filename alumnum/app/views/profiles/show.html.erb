@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Headline:</strong>
+  <%= @profile.headline %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @profile.image_url %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @profile.bio %>
+</p>
+
+<p>
+  <strong>View count:</strong>
+  <%= @profile.view_count %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @profile.status %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @profile.twitter %>
+</p>
+
+<p>
+  <strong>Github:</strong>
+  <%= @profile.github %>
+</p>
+
+<p>
+  <strong>Peronal site:</strong>
+  <%= @profile.peronal_site %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @profile.linkedin %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
