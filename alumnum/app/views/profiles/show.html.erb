@@ -46,9 +46,14 @@
 </p>
 
 
-
+<h1>Resume Items</h1>
 <% @resume.each do |r| %>
-<%= r.title %><br>
+<div class="resume_item" >
+<h2><%= r.title %></h2>
+<p> <%= r.heading %><br>
+<%= r.start_date %> - <%= r.end_date %><br>
+<%= r.description %><br>
+</p></div>
 <% end %>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |

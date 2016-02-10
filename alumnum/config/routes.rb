@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :questions
   resources :resume_items
   resources :profiles
   devise_for :users

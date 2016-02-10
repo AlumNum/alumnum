@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    binding.pry
+    
     user_id = User.where('profile.id' == params[:id])
     @resume = ResumeItem.where('user_id' == user_id)
 
