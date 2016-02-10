@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
+    @cu = current_user
     @profiles = Profile.all
   end
 
