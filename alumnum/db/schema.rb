@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211164832) do
+ActiveRecord::Schema.define(version: 20160211192301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,5 +129,4 @@ ActiveRecord::Schema.define(version: 20160211164832) do
   add_foreign_key "qnas", "users"
   add_foreign_key "resume_items", "users"
   add_foreign_key "usertags", "tags"
-  add_foreign_key "usertags", "users"
 end

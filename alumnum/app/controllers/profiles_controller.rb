@@ -6,18 +6,20 @@ class ProfilesController < ApplicationController
   def index
 
     @profiles = Profile.all
-    # binding.pry
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
     
-    user_id = @profile.user_id
-    @resume = ResumeItem.where('user_id' == user_id)
-    @qnas = Qna.where('user_id' == user_id)
-    @usertags = Usertag.where('user_id' == user_id)
+    this_user_id = @profile.user_id
+
+
+    @resume = ResumeItem.where user_id: this_user_id
+    @qnas = Qna.where user_id: this_user_id
     # binding.pry
+    @usertags = Usertag.where user_id: this_user_id
+
   end
 
   # GET /profiles/new
