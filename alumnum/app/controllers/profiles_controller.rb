@@ -6,16 +6,18 @@ class ProfilesController < ApplicationController
   def index
 
     @profiles = Profile.all
+    # binding.pry
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
     
-    user_id = User.where('profile.id' == params[:id])
+    user_id = @profile.user_id
     @resume = ResumeItem.where('user_id' == user_id)
     @qnas = Qna.where('user_id' == user_id)
-
+    @usertags = Usertag.where('user_id' == user_id)
+    # binding.pry
   end
 
   # GET /profiles/new

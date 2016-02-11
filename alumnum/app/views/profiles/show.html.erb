@@ -68,5 +68,12 @@
 <% end %>
 </div>
 
+<div class="tags">
+<h1>tags</h1>
+<% @usertags.each do |t| %>
+  <%= t.tag.skill_tag %><br>
+<% end %>
+</div>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
