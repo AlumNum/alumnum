@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
 
     @resume = ResumeItem.where user_id: this_user_id
     @qnas = Qna.where user_id: this_user_id
-    # binding.pry
+  
     @usertags = Usertag.where user_id: this_user_id
 
   end
@@ -25,7 +25,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
-    @profile.user = current_user
+    @profile.alum = current_user
+
   end
 
   # GET /profiles/1/edit
@@ -36,7 +37,7 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-    @profile.user = current_user
+    @profile.alum = current_user
 
     respond_to do |format|
       if @profile.save

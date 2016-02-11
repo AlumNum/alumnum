@@ -15,7 +15,7 @@ class QnasController < ApplicationController
   # GET /qnas/new
   def new
     @qna = Qna.new
-    @qna.user = current_user
+    @qna.alum = current_user
   end
 
   # GET /qnas/1/edit
@@ -26,7 +26,7 @@ class QnasController < ApplicationController
   # POST /qnas.json
   def create
     @qna = Qna.new(qna_params)
-    @qna.user = current_user
+    @qna.alum = current_user
 
     respond_to do |format|
       if @qna.save
