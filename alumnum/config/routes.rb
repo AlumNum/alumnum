@@ -15,6 +15,8 @@ Rails.application.routes.draw do
    get '/answers/new' => 'answers#new'
    post '/answers/create' => 'answers#create'
 
+   get '/myprofile' => redirect('/profiles/#{current_user.id}')
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
