@@ -11,7 +11,9 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    
+    @profile.view_count +=1
+    @profile.save
+    @alum = @profile.alum
     this_user_id = @profile.user_id
 
 
@@ -25,7 +27,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
-    @profile.user = current_user
+    #@profile.user_id = current_user.id
+
   end
 
   # GET /profiles/1/edit
