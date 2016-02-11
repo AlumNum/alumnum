@@ -1,6 +1,8 @@
 <h1>Editing Profile</h1>
 
 <%= render 'form' %>
-
+<%= link_to 'New Resume Item', new_resume_item_path %>
+<%= link_to 'Q&A', new_qna_path %>
+<%= link_to 'Add Tags', new_usertag_path %>
 <%= link_to 'Show', @profile %> |
 <%= link_to 'Back', profiles_path %>

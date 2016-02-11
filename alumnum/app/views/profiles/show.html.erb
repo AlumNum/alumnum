@@ -45,5 +45,35 @@
   <%= @profile.linkedin %>
 </p>
 
+<%= image_tag @profile.image.url(:medium)%>
+<div class="resume_container">
+<h1>Resume Items</h1>
+<% @resume.each do |r| %>
+<div class="resume_item" >
+<h2><%= r.title %></h2>
+<p> <%= r.heading %><br>
+<%= r.start_date %> - <%= r.end_date %><br>
+<%= r.description %><br>
+</p></div>
+<% end %>
+</div>
+
+<div class="question_container">
+<h1>Q&A</h1>
+<% @qnas.each do |q| %>
+<h3>
+  <%= q.question.question %><br>
+</h3>
+  <%= q.response %><br>
+<% end %>
+</div>
+
+<div class="tags">
+<h1>tags</h1>
+<% @usertags.each do |t| %>
+  <%= t.tag.skill_tag %><br>
+<% end %>
+</div>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

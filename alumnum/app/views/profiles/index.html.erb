@@ -6,7 +6,7 @@
 <table>
   <thead>
     <tr>
-      <th>Email</th>
+      <th>Name</th>
       <th>Headline</th>
       <th>Image url</th>
       <th>Bio</th>
@@ -23,11 +23,12 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.user.first_name %> </td>
+        <td><%= "#{profile.user_id}" %> </td>
         <td><%= profile.headline %></td>
         <td><%= profile.image_url %></td>
         <td><%= profile.bio %></td>
         <td><%= profile.view_count %></td>
+        <td><%= image_tag profile.image.url(:thumb) %></td>
         <td><%= profile.status %></td>
         <td><%= profile.twitter %></td>
         <td><%= profile.github %></td>

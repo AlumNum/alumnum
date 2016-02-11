@@ -11,12 +11,22 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    
+    this_user_id = @profile.user_id
+
+
+    @resume = ResumeItem.where user_id: this_user_id
+    @qnas = Qna.where user_id: this_user_id
+  
+    @usertags = Usertag.where user_id: this_user_id
+
   end
 
   # GET /profiles/new
   def new
     @profile = Profile.new
-    @profile.user = current_user
+    @profile.alum = current_user
+
   end
 
   # GET /profiles/1/edit
@@ -27,7 +37,7 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-    @profile.user = current_user
+    @profile.alum = current_user
 
     respond_to do |format|
       if @profile.save
@@ -72,6 +82,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:headline, :image_url, :bio, :view_count, :status, :twitter, :github, :peronal_site, :linkedin)
+      params.require(:profile).permit(:headline, :image_url, :bio, :view_count, :status, :twitter, :github, :peronal_site, :linkedin, :image)
     end
 end
