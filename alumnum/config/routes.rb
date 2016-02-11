@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :qnas
   resources :questions
   resources :resume_items
   resources :profiles
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'static#index'
+
+   get '/answers/new' => 'answers#new'
+   post '/answers/create' => 'answers#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

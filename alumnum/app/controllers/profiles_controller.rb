@@ -14,6 +14,7 @@ class ProfilesController < ApplicationController
     
     user_id = User.where('profile.id' == params[:id])
     @resume = ResumeItem.where('user_id' == user_id)
+    @qnas = Qna.where('user_id' == user_id)
 
   end
 

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @qna.user %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @qna.question %>
+</p>
+
+<p>
+  <strong>Response:</strong>
+  <%= @qna.response %>
+</p>
+
+<%= link_to 'Edit', edit_qna_path(@qna) %> |
+<%= link_to 'Back', qnas_path %>

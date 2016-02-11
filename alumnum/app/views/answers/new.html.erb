@@ -1,0 +1,13 @@
+<%= form_for @answer, url: answers_create do |f| %>
+
+<div class="field">
+	<%= f.label :question %>
+	<%= f.text_field :question %>
+</div>
+
+<div class="field">
+	<%= f.label :response %>
+	<%= f.text_field :response %>
+</div>
+
+<% end %>
