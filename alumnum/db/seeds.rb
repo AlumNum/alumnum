@@ -22,6 +22,8 @@ Tag.create(skill_tag: "Javascript")
 	Qna.create(question_id: 1, user_id: @alum.id, response: Faker::Hacker.say_something_smart)
 	Qna.create(question_id: 2, user_id: @alum.id, response: Faker::Hacker.say_something_smart)
 
-	Usertag.create(user_id: @alum.id, tag_id: Tag.first)
-	Usertag.create(user_id: @alum.id, tag_id: Tag.last)
+	Usertag.create(user_id: @alum.id, tag_id: Tag.first.id)
+	Usertag.create(user_id: @alum.id, tag_id: Tag.last.id)
 end
+
+Profile.update_all(view_count:0)
