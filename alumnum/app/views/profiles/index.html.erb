@@ -23,7 +23,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= "#{profile.user.first_name} #{profile.user.last_name}" %> </td>
+        <td><%= "#{profile.user_id}" %> </td>
         <td><%= profile.headline %></td>
         <td><%= profile.image_url %></td>
         <td><%= profile.bio %></td>

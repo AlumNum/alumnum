@@ -1,4 +1,4 @@
 class Qna < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :alum
   belongs_to :question
 end

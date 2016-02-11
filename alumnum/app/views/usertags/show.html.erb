@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @usertag.user %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @usertag.tag %>
+</p>
+
+<%= link_to 'Edit', edit_usertag_path(@usertag) %> |
+<%= link_to 'Back', usertags_path %>
