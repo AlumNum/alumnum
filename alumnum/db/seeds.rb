@@ -25,5 +25,3 @@ Tag.create(skill_tag: "Javascript")
 	Usertag.create(user_id: @alum.id, tag_id: Tag.first.id)
 	Usertag.create(user_id: @alum.id, tag_id: Tag.last.id)
 end
-
-Profile.update_all(view_count:0)
