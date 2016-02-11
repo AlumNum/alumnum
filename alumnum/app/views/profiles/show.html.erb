@@ -45,6 +45,7 @@
   <%= @profile.linkedin %>
 </p>
 
+<%= image_tag @profile.image.url(:medium)%>
 
 <h1>Resume Items</h1>
 <% @resume.each do |r| %>
