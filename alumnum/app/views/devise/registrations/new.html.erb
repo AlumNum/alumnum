@@ -3,6 +3,15 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+  <div class="field">
+    <%= f.radio_button :type, "Alum" %>
+    <%= f.label :type, "Alum", value: "Alum" %>
+    <%= f.radio_button :type, "Employer" %>
+    <%= f.label :type, "Employer", value: "Employer" %>
+    <%= f.radio_button :type, "Admin" %>
+    <%= f.label :type, "Admin", value: "Admin" %>    
+  </div>
+
     <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true %>

@@ -15,7 +15,7 @@ class ResumeItemsController < ApplicationController
   # GET /resume_items/new
   def new
     @resume_item = ResumeItem.new
-    @resume_item.user = current_user
+    @resume_item.alum = current_user
   end
 
   # GET /resume_items/1/edit
@@ -26,7 +26,7 @@ class ResumeItemsController < ApplicationController
   # POST /resume_items.json
   def create
     @resume_item = ResumeItem.new(resume_item_params)
-    @resume_item.user = current_user
+    @resume_item.alum = current_user
     
     respond_to do |format|
       if @resume_item.save
