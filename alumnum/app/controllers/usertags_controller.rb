@@ -25,7 +25,7 @@ class UsertagsController < ApplicationController
   # POST /usertags.json
   def create
     @usertag = Usertag.new(usertag_params)
-
+    @usertag.alum = current_user
     respond_to do |format|
       if @usertag.save
         format.html { redirect_to @usertag, notice: 'Usertag was successfully created.' }
