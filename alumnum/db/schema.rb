@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211192301) do
+ActiveRecord::Schema.define(version: 20160212031154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,12 @@ ActiveRecord::Schema.define(version: 20160211192301) do
   end
 
   add_index "resume_items", ["user_id"], name: "index_resume_items_on_user_id", using: :btree
+
+  create_table "saved_searches", force: :cascade do |t|
+    t.string   "query"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "taglists", force: :cascade do |t|
     t.string   "tag"
