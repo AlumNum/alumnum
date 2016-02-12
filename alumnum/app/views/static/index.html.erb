@@ -1,6 +1,6 @@
 <h1>Alum Num: Better than LinkedIn. But what isnt?</h1>
-<% if current_user.type = 'Admin' %>
-<p> Admin User status panel </p>
+<% if current_user && current_user.type = 'Admin' %>
+<p> Admin User status panel. <%= current_user.id %> Your usertype: <%= current_user.type %></p>
 <table>
   <thead>
     <tr>
@@ -18,9 +18,6 @@
     <% end %>
   </tbody>
 </table>
-
-<% end %>
-<!--this is to test out git-->
-<% if current_user %>
-<%= current_alum_profile_id %> is ur profile id
+<% else %>
+You are not an admin
 <% end %>
