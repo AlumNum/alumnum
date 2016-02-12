@@ -81,5 +81,8 @@
 <% end %>
 </div>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<% if user_signed_in? and current_user == @alum  %>
+  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+<% end %>
+
 <%= link_to 'Back', profiles_path %>
