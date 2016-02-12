@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212111156) do
+ActiveRecord::Schema.define(version: 20160212165356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,8 +81,9 @@ ActiveRecord::Schema.define(version: 20160212111156) do
 
   create_table "saved_searches", force: :cascade do |t|
     t.string   "query"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "count",      default: 0
   end
 
   create_table "taglists", force: :cascade do |t|

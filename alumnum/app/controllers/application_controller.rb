@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_alum_profile_id
 
   def current_alum_profile_id
-  	(Profile.find_by :user_id => current_user.id).id
+  	if (Profile.find_by :user_id => current_user.id)
+      (Profile.find_by :user_id => current_user.id).id
+    else
+      false
+    end
   end
 
   helper_method :is_alum?
