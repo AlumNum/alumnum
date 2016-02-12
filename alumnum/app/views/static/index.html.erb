@@ -1,6 +1,13 @@
 <h1>Alum Num: Better than LinkedIn. But what isnt?</h1>
 <% if current_user && current_user.type == 'Admin' %>
 <p> Admin User status panel. <%= current_user.id %> Your usertype: <%= current_user.type %></p>
+
+<div class="search-analytics">
+<h3>Most Popular Searches </h3>
+<% @searches.each do |s| %>
+  <%= "#{s.query} - #{s.count} times" %><br>
+<% end %>
+</div>
 <table>
   <thead>
     <tr>
