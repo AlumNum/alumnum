@@ -15,7 +15,9 @@ Rails.application.routes.draw do
    get '/answers/new' => 'answers#new'
    post '/answers/create' => 'answers#create'
 
+   get '/search/history' => 'saved_searches#history'
    get '/search' => 'saved_searches#search' 
+
 
 
   # Example of regular route:
