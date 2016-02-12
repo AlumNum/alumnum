@@ -37,56 +37,60 @@
   </p>
 
   <p>
-    <strong>Twitter:</strong>
-    <%= @profile.twitter %>
+    
+    <a href="<%= @profile.twitter %>">Twitter</a>
   </p>
 
   <p>
-    <strong>Github:</strong>
-    <%= @profile.github %>
+    <a href="<%= @profile.github %>">Github</a>
   </p>
 
   <p>
-    <strong>Peronal site:</strong>
-    <%= @profile.peronal_site %>
+    <a href="<%= @profile.peronal_site %>">Personal Site</a>
   </p>
 
   <p>
-    <strong>Linkedin:</strong>
-    <%= @profile.linkedin %>
+    <a href="<%= @profile.linkedin %>">LinkedIn</a>
   </p>
-</div>
 
-
-
-<div class="resume_container">
-<h1>Resume Items</h1>
-<% @resume.each do |r| %>
-<div class="resume_item" >
-<h2><%= r.title %></h2>
-<p> <%= r.heading %><br>
-<%= r.start_date %> - <%= r.end_date %><br>
-<%= r.description %><br>
-</p></div>
-<% end %>
-</div>
-
-<div class="question_container">
-<h1>Q&A</h1>
-<% @qnas.each do |q| %>
-<h3>
-  <%= q.question.question %><br>
-</h3>
-  <%= q.response %><br>
-<% end %>
-</div>
-
-<div class="tags">
-<h1>tags</h1>
+  <strong>tags</strong>
 <% @usertags.each do |t| %>
+<div class="tag">
   <%= t.tag.skill_tag %><br>
-<% end %>
 </div>
+<% end %>
+
+  <div class="question-container">
+  <h1>Q&A</h1>
+    <% @qnas.each do |q| %>
+      <h3>
+        <%= q.question.question %><br>
+      </h3>
+        <%= q.response %><br>
+    <% end %>
+  </div>
+</div>
+
+
+
+<div class="resume-container col-md-10">
+  <h1>Resume Items</h1>
+  <% @resume.each do |r| %>
+    <div class="resume-item <%=r.kind.downcase%>" >
+      <h2><%= r.title %></h2>
+      <p> <%= r.heading %><br>
+      <%= r.start_date %> - <%= r.end_date %><br>
+      <%= r.description %><br>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
 
 <% if user_signed_in? and current_user == @alum  %>
   <%= link_to 'Edit', edit_profile_path(@profile) %> |
