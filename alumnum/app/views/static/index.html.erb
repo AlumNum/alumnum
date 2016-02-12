@@ -1,11 +1,13 @@
 <h1>Alum Num: Better than LinkedIn. But what isnt?</h1>
+<% if current_user %>
 <% if current_user.type = 'Admin' %>
 <p> Admin User status panel </p>
-<table>
+<table id="status">
   <thead>
     <tr>
       <th>Name</th>
       <th>Status</th>
+      <th>Profile View Count</th>
     </tr>
   </thead>
 
@@ -13,12 +15,18 @@
     <% @user.each do |user| %>
       <tr>
         <td><%= "#{user.first_name} #{user.last_name}" %> </td>
-        <td><%= user.status %></td>
+        <td col width="80"><%= user.status %></td>
+        <% profile = Profile.find(user_id = user.id) %>
+        <td><%= profile.view_count %></td>
       </tr>
     <% end %>
+      
   </tbody>
+	
 </table>
-
+	<%= page_entries_info @user %>
+    <%= paginate @user %>
+<% end %>
 <% end %>
 <!--this is to test out git-->
 
