@@ -1,0 +1,8 @@
+<h1>You searched for <%= params[:q] %></h1>
+<br><br>
+<h2>Search History </h2>
+<ul>
+<% @history.each do |h| %>
+	<li><%= h.query %></li>
+<%end%>
+</ul>

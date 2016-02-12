@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+#Todo figure out how to link to a user's own profile all proper-like
+  helper_method :current_alum_profile_id
+
+  def current_alum_profile_id
+  	(Profile.find_by :user_id => current_user.id).id
+  end
+
   protected
   
   def configure_permitted_parameters
