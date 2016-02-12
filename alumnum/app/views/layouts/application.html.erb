@@ -43,11 +43,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/profiles">Profiles <span class="sr-only">(current)</span></a></li>
 
-          <% if user_signed_in? %>
-          <li class="active">
-            <a href="/profiles/<%=current_alum_profile_id%>">My Profile</a>
-           <!--  This is a nasty way to do this. Current_alum_profile_id is a method in applicationcontroller -caleb -->
-          </li>
+      
+   <% if current_user %>
+          
           <li class="active">
          
           <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
@@ -58,6 +56,9 @@
       Hello, <%= current_user.first_name + " " + current_user.last_name %>
          </li>
 
+         <% if is_alum? %>
+          You are an alum
+         <% end %>
 
         <% else %>
           <li class="active">

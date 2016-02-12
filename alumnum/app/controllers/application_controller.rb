@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
   	(Profile.find_by :user_id => current_user.id).id
   end
 
+  helper_method :is_alum?
+
+  def is_alum?
+    current_user.type =='Alum'
+  end
+
   protected
   
   def configure_permitted_parameters
