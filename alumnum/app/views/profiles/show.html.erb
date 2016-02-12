@@ -1,57 +1,64 @@
 <p id="notice"><%= notice %></p>
-<div class="profile_name">
-<h1><%= @alum.first_name + " " + @alum.last_name %></h1>
+<div class="headline">
+  <div class="circle-image">
+    <%= image_tag @profile.image.url(:medium)%>
+  </div>
+
+    <h1><%= @alum.first_name + " " + @alum.last_name %></h1>
+
+
+
+    <h3>
+      
+      <%= @profile.headline %>
+    </h3>
+
+
+    <p>
+      
+      <%= @profile.bio %>
+    </p>
+
+
 </div>
-<div class="email">
-<%= @alum.email %><br><br>
-</div>
 
-<p>
-  <strong>Headline:</strong>
-  <%= @profile.headline %>
-</p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @profile.image_url %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @profile.bio %>
-</p>
-
+<div class="sidebar col-md-2">
 <p>
   <strong>View count:</strong>
   <%= @profile.view_count %>
 </p>
+  <p>
+   <%= @alum.email %>
+  </p>
+  <p>
+    <strong>Status:</strong>
+    <%= @profile.status %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @profile.status %>
-</p>
+  <p>
+    <strong>Twitter:</strong>
+    <%= @profile.twitter %>
+  </p>
 
-<p>
-  <strong>Twitter:</strong>
-  <%= @profile.twitter %>
-</p>
+  <p>
+    <strong>Github:</strong>
+    <%= @profile.github %>
+  </p>
 
-<p>
-  <strong>Github:</strong>
-  <%= @profile.github %>
-</p>
+  <p>
+    <strong>Peronal site:</strong>
+    <%= @profile.peronal_site %>
+  </p>
 
-<p>
-  <strong>Peronal site:</strong>
-  <%= @profile.peronal_site %>
-</p>
+  <p>
+    <strong>Linkedin:</strong>
+    <%= @profile.linkedin %>
+  </p>
+</div>
 
-<p>
-  <strong>Linkedin:</strong>
-  <%= @profile.linkedin %>
-</p>
 
-<%= image_tag @profile.image.url(:medium)%>
+
 <div class="resume_container">
 <h1>Resume Items</h1>
 <% @resume.each do |r| %>
