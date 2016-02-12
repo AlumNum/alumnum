@@ -1,5 +1,5 @@
 <h1>Alum Num: Better than LinkedIn. But what isnt?</h1>
-<% if current_user && current_user.type = 'Admin' %>
+<% if current_user && current_user.type == 'Admin' %>
 <p> Admin User status panel. <%= current_user.id %> Your usertype: <%= current_user.type %></p>
 <table>
   <thead>
