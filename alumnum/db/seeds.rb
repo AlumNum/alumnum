@@ -12,7 +12,7 @@ Tag.create(skill_tag: "Rails")
 Tag.create(skill_tag: "Python")
 Tag.create(skill_tag: "Javascript")
 100.times do 
-	@alum = User.create(email: Faker::Internet.email, password: "password",created_at: Time.now, first_name:Faker::Name.first_name, last_name:Faker::Name.last_name, type:"Alum")
+	@alum = User.create(email: Faker::Internet.email, password: "password",created_at: Time.now, first_name:Faker::Name.first_name, last_name:Faker::Name.last_name, type:"Alum", status:"Looking")
 	Profile.create(headline: Faker::Book.title, bio: Faker::Hacker.say_something_smart, user_id: @alum.id)
 
 	2.times do

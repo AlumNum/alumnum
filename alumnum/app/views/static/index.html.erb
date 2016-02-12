@@ -1,4 +1,24 @@
 <h1>Alum Num: Better than LinkedIn. But what isnt?</h1>
+<% if current_user.type = 'Admin' %>
+<p> Admin User status panel </p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @user.each do |user| %>
+      <tr>
+        <td><%= "#{user.first_name} #{user.last_name}" %> </td>
+        <td><%= user.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
 <!--this is to test out git-->
 
