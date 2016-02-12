@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(version: 20160212111156) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "taglists", force: :cascade do |t|
+    t.string   "tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> d843ce8c421929c8ed2aaa8993f698bccc7fe44a
   create_table "tags", force: :cascade do |t|
     t.string   "skill_tag"
     t.datetime "created_at", null: false
@@ -130,5 +139,4 @@ ActiveRecord::Schema.define(version: 20160212111156) do
   add_foreign_key "qnas", "users"
   add_foreign_key "resume_items", "users"
   add_foreign_key "usertags", "tags"
-  add_foreign_key "usertags", "users"
 end
