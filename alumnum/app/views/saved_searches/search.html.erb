@@ -3,6 +3,6 @@
 <h2>Search History </h2>
 <ul>
 <% @history.each do |h| %>
-	<li><%= h.query %></li>
+	<li><%= h.query %> - <%= h.count %></li>
 <%end%>
 </ul>
