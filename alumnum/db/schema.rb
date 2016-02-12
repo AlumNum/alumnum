@@ -83,13 +83,7 @@ ActiveRecord::Schema.define(version: 20160212165356) do
     t.string   "query"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "count",      default: 0
-  end
-
-  create_table "taglists", force: :cascade do |t|
-    t.string   "tag"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "count",      default: 1
   end
 
   create_table "tags", force: :cascade do |t|
@@ -109,6 +103,10 @@ ActiveRecord::Schema.define(version: 20160212165356) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
@@ -117,6 +115,7 @@ ActiveRecord::Schema.define(version: 20160212165356) do
     t.string   "status"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
@@ -137,4 +136,5 @@ ActiveRecord::Schema.define(version: 20160212165356) do
   add_foreign_key "qnas", "users"
   add_foreign_key "resume_items", "users"
   add_foreign_key "usertags", "tags"
+  add_foreign_key "usertags", "users"
 end
