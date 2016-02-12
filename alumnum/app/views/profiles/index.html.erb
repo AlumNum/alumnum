@@ -35,8 +35,13 @@
         <td><%= profile.peronal_site %></td>
         <td><%= profile.linkedin %></td>
         <td><%= link_to 'Show', profile %></td>
+        
+        <% if user_signed_in? and current_user == profile.alum  %>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
