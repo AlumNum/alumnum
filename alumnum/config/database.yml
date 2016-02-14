@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  
 
 development:
   <<: *default
@@ -80,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: alumnum_production
-  username: alumnum
+  database: alumnum
+  username: jnorr_psql
   password: <%= ENV['ALUMNUM_DATABASE_PASSWORD'] %>

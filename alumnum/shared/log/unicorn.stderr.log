@@ -1,0 +1,22 @@
+I, [2016-02-13T18:01:25.266141 #8153]  INFO -- : Refreshing Gem list
+I, [2016-02-13T18:01:28.048735 #8153]  INFO -- : listening on addr=/home/jnorr/code/alumnum/alumnum/shared/sockets/unicorn.sock fd=11
+I, [2016-02-13T18:01:28.049082 #8153]  INFO -- : worker=0 spawning...
+I, [2016-02-13T18:01:28.053036 #8153]  INFO -- : worker=1 spawning...
+I, [2016-02-13T18:01:28.061122 #8156]  INFO -- : worker=0 spawned pid=8156
+I, [2016-02-13T18:01:28.061505 #8156]  INFO -- : worker=0 ready
+I, [2016-02-13T18:01:28.065754 #8159]  INFO -- : worker=1 spawned pid=8159
+I, [2016-02-13T18:01:28.066189 #8159]  INFO -- : worker=1 ready
+I, [2016-02-13T18:01:28.057652 #8153]  INFO -- : master process ready
+I, [2016-02-13T18:40:09.786260 #8153]  INFO -- : reaped #<Process::Status: pid 8156 exit 0> worker=0
+I, [2016-02-13T18:40:09.786538 #8153]  INFO -- : reaped #<Process::Status: pid 8159 exit 0> worker=1
+I, [2016-02-13T18:40:09.786717 #8153]  INFO -- : master complete
+I, [2016-02-13T18:40:22.002571 #1416]  INFO -- : Refreshing Gem list
+I, [2016-02-13T18:40:24.544601 #1416]  INFO -- : unlinking existing socket=/home/jnorr/code/alumnum/alumnum/shared/sockets/unicorn.sock
+I, [2016-02-13T18:40:24.545010 #1416]  INFO -- : listening on addr=/home/jnorr/code/alumnum/alumnum/shared/sockets/unicorn.sock fd=11
+I, [2016-02-13T18:40:24.545255 #1416]  INFO -- : worker=0 spawning...
+I, [2016-02-13T18:40:24.547815 #1416]  INFO -- : worker=1 spawning...
+I, [2016-02-13T18:40:24.549468 #1416]  INFO -- : master process ready
+I, [2016-02-13T18:40:24.556726 #1419]  INFO -- : worker=0 spawned pid=1419
+I, [2016-02-13T18:40:24.556924 #1419]  INFO -- : worker=0 ready
+I, [2016-02-13T18:40:24.558264 #1421]  INFO -- : worker=1 spawned pid=1421
+I, [2016-02-13T18:40:24.558718 #1421]  INFO -- : worker=1 ready

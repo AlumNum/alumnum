@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   resources :usertags
   resources :tags
   resources :qnas
