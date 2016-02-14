@@ -1,8 +1,25 @@
 <h1>You searched for <%= params[:q] %></h1>
 <br><br>
+
+<div class="history col-md-2">
 <h2>Search History </h2>
 <ul>
 <% @history.each do |h| %>
 	<li><%= h.query %> - <%= h.count %></li>
 <%end%>
 </ul>
+</div>
+
+<div class="search-results col-md-8">
+
+<% @users_with_tag.each do |u| %>
+	<a href="/profiles/<%= u.id %>">
+	<%= "#{u.alum.first_name} #{u.alum.last_name}" %><br>
+	</a>
+<% end %>
+
+</div>
+
+<div class="right-bar col-md-2">
+
+</div>
