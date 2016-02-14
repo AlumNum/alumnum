@@ -1,5 +1,17 @@
-<style type="text/css">
-<h1> {color:red;}</h1>
-</style>
-<h1> Hello <% @user.name %>! </h1>
-<p> Welcome to the awesome Alumnum website. </p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, <%= @user.first_name %></h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: <%= @user.email %>.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

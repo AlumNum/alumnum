@@ -28,5 +28,38 @@
     <%= paginate @user %>
 <% end %>
 <% end %>
+
+<% if current_user %>
+<% if current_user.type == 'Employer' %>
+<p> You are signed in as an Employer</p>
+<table id="status">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>User Name</th>
+      <th>Tag</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employer_limit_items.each do |tag| %>
+    <% thisUser = User.find(tag.user_id) %>
+    <% tagName = Tag.find(tag.tag_id) %>
+      <tr>
+        <td><%= tag.user_id %> </td>
+        <td><%= "#{thisUser.first_name} #{thisUser.last_name}" %> </td>
+        <td><%= tagName.skill_tag %> </td>
+      </tr>
+    <% end %>
+      
+  </tbody>
+  
+</table>
+  <%= page_entries_info @employer_limit_items %>
+  <%= paginate @employer_limit_items %>
+
+
+<% end %>
+<% end %>
 <!--this is to test out git-->
 
