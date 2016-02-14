@@ -46,7 +46,6 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'faker'
-  gem 'foreman'
 end
 
 group :development do
