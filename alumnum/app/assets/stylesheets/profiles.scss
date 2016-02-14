@@ -1,1 +1,56 @@
 
+// Place all the styles related to the Profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.sidebar{
+	border: 1px solid black;
+
+
+}
+
+.headline{
+	border: 1px solid black;
+	margin: 20px;
+	padding: 5px;
+}
+
+
+.circle-image {
+	float:left;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+.resume-container{
+	border: 1px solid black;
+	
+}
+
+.resume-item{
+	border-radius: 15px;
+	padding: 10px;
+	margin: 10px;
+}
+
+
+
+.job{
+	background-color: yellow;
+}
+
+.school{
+	background-color: green;
+
+}

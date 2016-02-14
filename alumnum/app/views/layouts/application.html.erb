@@ -42,19 +42,20 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/profiles">Profiles <span class="sr-only">(current)</span></a></li>
       
-   <% if current_user && current_alum_profile_id  %>
-          <% if is_alum? %>
+   <% if current_user %>
+             <li class="active">
+         
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
+           
+          </li>
+          <% if is_alum?  && current_alum_profile_id %>
             <li class="active">
               <a href="/profiles/<%=current_alum_profile_id %>">My Profile </a>
             </li>
           <% else %>
              You do not have a profile
          <% end %>
-          <li class="active">
-         
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
-           
-          </li>
+        
 
           <li>
       Hello, <%= current_user.first_name + " " + current_user.last_name %>
