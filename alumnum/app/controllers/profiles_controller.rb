@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
 
-  def find_by_user
+  def find_by_user #get /u/:id
     user_id = params[:id]
     @profile = Profile.find_by :user_id => user_id
     redirect_to "/profiles/#{@profile.id}"
