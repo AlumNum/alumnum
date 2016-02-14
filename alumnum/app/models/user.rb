@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:confirmable
 
+  after_create :user_mailer
+  def user_mailer
+	  UserMailer.welcome_email(self).deliver
+  end
 end
