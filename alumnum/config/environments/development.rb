@@ -18,7 +18,6 @@ Rails.application.configure do
 
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
 
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -34,15 +33,13 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-<<<<<<< HEAD
-=======
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
   # Sets mailer default settings
   config.action_mailer.default_url_options = { host: 'ubu', port: 3000 }
 
->>>>>>> 70dfdfcc48f176f5391767c129034ec70dd1bed9
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
