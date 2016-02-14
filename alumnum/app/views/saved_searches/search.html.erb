@@ -1,8 +1,8 @@
-<h1>You searched for <%= params[:q] %></h1>
+<h1>Search results for for <%= params[:q] %></h1>
 <br><br>
 
 <div class="history col-md-2">
-<h2>Search History </h2>
+<h2>Popular searches </h2>
 <ul>
 <% @history.each do |h| %>
 	<li><%= h.query %> - <%= h.count %></li>
@@ -13,7 +13,7 @@
 <div class="search-results col-md-8">
 
 <% @users_with_tag.each do |u| %>
-	<a href="/profiles/<%= u.id %>">
+	<a href="/u/<%= u.user_id %>">
 	<%= "#{u.alum.first_name} #{u.alum.last_name}" %><br>
 	</a>
 <% end %>
