@@ -7,8 +7,7 @@ class ApplicationController < ActionController::Base
 #Todo figure out how to link to a user's own profile all proper-like
   helper_method :current_alum_profile_id
 
-<<<<<<< HEAD
-=======
+
   def current_alum_profile_id
   	if (Profile.find_by :user_id => current_user.id)
       (Profile.find_by :user_id => current_user.id).id
@@ -23,7 +22,6 @@ class ApplicationController < ActionController::Base
     current_user.type =='Alum'
   end
 
->>>>>>> 7b5e11d23f88b16d9516dc778b6b783e183ac82d
   protected
   
   def configure_permitted_parameters

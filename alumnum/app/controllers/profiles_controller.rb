@@ -4,8 +4,23 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-
     @profiles = Profile.all
+    # @users = User.where(type: "Alum" id: user_id)
+  
+    # @this_user = User.where(id: Profile.user_id)
+    # @fname = @this_user.first_name
+    # @this_profile = Profile.where(user_id: User.id)
+    @users = User.all
+
+    # def user_names
+      
+    # end
+
+    # this_user = User.first_name
+
+# you need through in your association
+# so that you can do Profile.User.first_name
+
   end
 
   # GET /profiles/1
