@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 #Todo figure out how to link to a user's own profile all proper-like
   helper_method :current_alum_profile_id
 
+
   def current_alum_profile_id
   	if (Profile.find_by :user_id => current_user.id)
       (Profile.find_by :user_id => current_user.id).id

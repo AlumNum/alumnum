@@ -5,23 +5,9 @@
   </div>
 
     <h1><%= @alum.first_name + " " + @alum.last_name %></h1>
-
-
-
-    <h3>
-      
-      <%= @profile.headline %>
-    </h3>
-
-
-    <p>
-      
-      <%= @profile.bio %>
-    </p>
-
-
+    <h3><%= @profile.headline %></h3>
+    <p><%= @profile.bio %></p>
 </div>
-
 
 <div class="sidebar col-md-2">
 <p>
@@ -34,11 +20,6 @@
   <p>
     <strong>Status:</strong>
     <%= @profile.status %>
-  </p>
-
-  <p>
-    
-    <a href="<%= @profile.twitter %>">Twitter</a>
   </p>
 
   <p>
@@ -60,7 +41,7 @@
 </div>
 <% end %>
 
-  <div class="question-container">
+<div class="question-container">
   <h1>Q&A</h1>
     <% @qnas.each do |q| %>
       <h3>
@@ -70,9 +51,6 @@
     <% end %>
   </div>
 </div>
-
-
-
 <div class="resume-container col-md-10">
   <h1>Resume Items</h1>
   <% @resume.each do |r| %>
@@ -85,13 +63,6 @@
     </div>
   <% end %>
 </div>
-
-
-
-
-
-
-
 <% if user_signed_in? and current_user == @alum  %>
   <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <% end %>

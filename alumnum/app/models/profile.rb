@@ -1,5 +1,10 @@
 class Profile < ActiveRecord::Base
+	# this was there before --
 	belongs_to :alum, foreign_key: "user_id"
+	
+
+	#i wrote this in --
+	# belongs_to :user
 	# has_many :questions
 	has_many :answers #, through: :questions
 

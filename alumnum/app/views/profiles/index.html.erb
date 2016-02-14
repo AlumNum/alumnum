@@ -1,52 +1,58 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/stylesheets/profiles.scss" rel="stylesheet">
+</head>
 
-<h1>Listing Profiles</h1>
+<body>
+
+<h1>General Assembly Alumni</h1>
+
+<div class="profile_container" >
+  <% @profiles.each do |profile| %>
+    <div class ="user_name">
+    <h3><%= link_to profile.user_id, profile_path(profile) %></h3>
+    </div>
+    
+    <div class ="col-xs-9">
+    <p><%= profile.image_url %></p>
+    </div>
+    
+    <div class ="col-xs-9">
+    <p><%= profile.headline %></p>
+    <p><%= profile.image.url %></p>
+    <p><%= link_to "Twitter", "#{profile.twitter}" %></p>
+    <p><%= link_to "Github", "#{profile.github}" %></p>
+    <p><%= link_to "LikedIn", "#{profile.linkedin}" %></p>
+    </div>
+  <%end%>
+</div>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Headline</th>
-      <th>Image url</th>
-      <th>Bio</th>
-      <th>View count</th>
-      <th>Status</th>
-      <th>Twitter</th>
-      <th>Github</th>
-      <th>Peronal site</th>
-      <th>Linkedin</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= "#{profile.user_id}" %> </td>
-        <td><%= profile.headline %></td>
-        <td><%= profile.image_url %></td>
-        <td><%= profile.bio %></td>
-        <td><%= profile.view_count %></td>
-        <td><%= image_tag profile.image.url(:thumb) %></td>
-        <td><%= profile.status %></td>
-        <td><%= profile.twitter %></td>
-        <td><%= profile.github %></td>
-        <td><%= profile.peronal_site %></td>
-        <td><%= profile.linkedin %></td>
-        <td><%= link_to 'Show', profile %></td>
-        
-        <% if user_signed_in? and current_user == profile.alum  %>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<!-- instructions to myself:
+  1. design the layout
+  2. figure out bootstrap
+  3. pull out items from active record query join statements-->
 
-        <% end %>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Profile', new_profile_path %>
+  <!-- print out the last title (General Assembly) of that user and heading is like Web Developmentnof the resume item --> 
+
+<!-- skills tags -->
+<!-- add an education attribute to the profile table so that
+I can have a education piece in the profiles index page -->
+
+</body>
+</html>
+
+
+

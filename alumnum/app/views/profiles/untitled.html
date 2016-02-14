@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<h1>General Assembly Alumni Profiles</h1>
+
+<div>
+  <% @profiles.each do |profile| %>
+    <% pinning_user = User.find(user_id = profile.user_id)%>
+    <% link_to 'Show', profile%><%= "#{pinning_user.first_name}" %> 
+    <%= profile.headline %>
+    <%= profile.twitter %>
+    <%= profile.github %>
+    <%= profile.linkedin %>
+  <%end%>
+</div>
+  <!-- print out the last title (General Assembly) of that user and heading is like Web Developmentnof the resume item --> 
+
+<!-- skills tags -->
+<!-- add an education attribute to the profile table so that
+I can have a education piece in the profiles index page -->
+
+<div>
+  <% if user_signed_in? and current_user == profile.alum  %>
+    <%= link_to 'Edit', edit_profile_path(profile) %>
+    <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%end%>
+</div>
+
+<div>
+<%= image_tag profile.image.url(:thumb) %>
+</div>
+
+
+</body>
+</html>
+
+
+
