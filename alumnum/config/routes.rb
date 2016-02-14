@@ -19,6 +19,7 @@ Rails.application.routes.draw do
    get '/search/history' => 'saved_searches#history'
    get '/search' => 'saved_searches#search' 
 
+   get '/u/:id' => 'profiles#find_by_user'
 
 
   # Example of regular route:
