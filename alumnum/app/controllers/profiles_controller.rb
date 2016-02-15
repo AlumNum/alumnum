@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     # @fname = @this_user.first_name
     # @this_profile = Profile.where(user_id: User.id)
     @users = User.all
-
+    #@usertags = Usertag.where user_id: this_user_id
     # def user_names
       
     # end

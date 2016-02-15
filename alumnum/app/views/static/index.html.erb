@@ -23,11 +23,12 @@
 
   <tbody>
     <% @user_admin.each do |user| %>
+    <%# thisProfile = find_by_user(user) %>
       <tr>
         <td><%= "#{user.first_name} #{user.last_name}" %> </td>
         <td col width="80"><%= user.status %></td>
-        <% profile = Profile.find(user_id = user.id) %>
-        <td><%= profile.view_count %></td>
+        <%#### profile = Profile.find(user_id = user.id) %>
+        <td><%#= thisProfile.view_count %></td>
       </tr>
     <% end %>
       
@@ -46,11 +47,13 @@
 <% if current_user.type == 'Employer' %>
 <p> You are signed in as an Employer</p>
 
+
+<p>Shows Alum users & Their Tags:</p>
 <table id="status">
   <thead>
     <tr>
       <th>User ID</th>
-      <th>User Name</th>
+      <th>Name</th>
       <th>Tag</th>
     </tr>
   </thead>
@@ -60,9 +63,9 @@
     <% thisUser = User.find(tag.user_id) %>
     <% tagName = Tag.find(tag.tag_id) %>
       <tr>
-        <td><%= tag.user_id %> </td>
-        <td><%= "#{thisUser.first_name} #{thisUser.last_name}" %> </td>
-        <td><%= tagName.skill_tag %> </td>
+        <td col width="80"><%= tag.user_id %> </td>
+        <td col width="120"><%= "#{thisUser.first_name} #{thisUser.last_name}" %> </td>
+        <td col width="80"><%= tagName.skill_tag %> </td>
       </tr>
     <% end %>
       
@@ -71,7 +74,20 @@
 </table>
   <%= page_entries_info @employer_limit_items %>
   <%= paginate @employer_limit_items %>
+<br />
+<br />
+<br />
+  <strong>Your Tags, Add tags to subscibe to email alerts</strong>
+<% @usertags = Usertag.where user_id: current_user.id %>  
+<% @usertags.each do |t| %>
+<div class="tag">
+  <%= t.tag.skill_tag %><br>
+</div>
+<% end %>
+<br />
+<br />
 
+<%= link_to 'Add Tags', new_usertag_path %>
 
 <% end %>
 <% end %>
