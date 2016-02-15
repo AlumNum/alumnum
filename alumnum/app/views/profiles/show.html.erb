@@ -7,9 +7,13 @@
     <h1><%= @alum.first_name + " " + @alum.last_name %></h1>
     <h3><%= @profile.headline %></h3>
     <p><%= @profile.bio %></p>
+    <% if @profile.attachment? %>
+    <%= link_to "Download Resume Pdf", @profile.attachment.url %>
+    <% end %>
 </div>
 
 <div class="sidebar col-md-2">
+
 <p>
   <strong>View count:</strong>
   <%= @profile.view_count %>

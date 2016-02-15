@@ -32,6 +32,8 @@ gem 'kaminari'
 
 gem 'paperclip', '~> 4.3', '>= 4.3.5'
 
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
