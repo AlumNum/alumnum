@@ -83,13 +83,7 @@ ActiveRecord::Schema.define(version: 20160213194055) do
     t.string   "query"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "count",      default: 0
-  end
-
-  create_table "taglists", force: :cascade do |t|
-    t.string   "tag"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "count",      default: 1
   end
 
   create_table "tags", force: :cascade do |t|
@@ -144,4 +138,5 @@ ActiveRecord::Schema.define(version: 20160213194055) do
   add_foreign_key "qnas", "users"
   add_foreign_key "resume_items", "users"
   add_foreign_key "usertags", "tags"
+  add_foreign_key "usertags", "users"
 end
