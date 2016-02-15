@@ -17,6 +17,7 @@
 
 <div class="profile_container" >
   <% @profiles.each do |profile| %>
+  <%= profile.first_name %>
     <div class ="user_name">
     <h3><%= link_to profile.user_id, profile_path(profile) %></h3>
     </div>

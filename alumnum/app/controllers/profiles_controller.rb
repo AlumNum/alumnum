@@ -11,13 +11,12 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.all
+    @profiles = Profile.find_by_sql "SELECT * FROM profiles, users WHERE profiles.user_id = users.id;"
     # @users = User.where(type: "Alum" id: user_id)
   
     # @this_user = User.where(id: Profile.user_id)
     # @fname = @this_user.first_name
     # @this_profile = Profile.where(user_id: User.id)
-    @users = User.all
 
     # def user_names
       
