@@ -26,9 +26,10 @@ class UsertagsController < ApplicationController
   def create
     @usertag = Usertag.new(usertag_params)
     @usertag.alum = current_user
+    @profile = Profile.find(current_alum_profile_id)
     respond_to do |format|
       if @usertag.save
-        format.html { redirect_to @usertag, notice: 'Usertag was successfully created.' }
+        format.html { redirect_to edit_profile_path(@profile), notice: 'Tag was successfully created.' }
         format.json { render :show, status: :created, location: @usertag }
       else
         format.html { render :new }
@@ -54,9 +55,10 @@ class UsertagsController < ApplicationController
   # DELETE /usertags/1
   # DELETE /usertags/1.json
   def destroy
+    @profile = Profile.find(current_alum_profile_id)
     @usertag.destroy
     respond_to do |format|
-      format.html { redirect_to usertags_url, notice: 'Usertag was successfully destroyed.' }
+      format.html { redirect_to edit_profile_path(@profile), notice: 'Usertag was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

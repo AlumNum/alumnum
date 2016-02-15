@@ -56,6 +56,10 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    @qnas = Qna.where(:user_id => current_user)
+    @resume = ResumeItem.where user_id: current_user
+    @usertags = Usertag.where user_id: current_user
+
   end
 
   # POST /profiles
