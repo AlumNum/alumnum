@@ -15,4 +15,5 @@
 //= require dataTables/jquery.dataTables
 //= require turbolinks
 //= requre bootstrap-sprockets
+//= require Chart
 //= require_tree .
