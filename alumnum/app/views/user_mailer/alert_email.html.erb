@@ -4,13 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Alumnum.com | <%= @user_to.first_name %></h1>
-    <p>
-      You have successfully signed up for alerts from Alumnum.com,
-    </p>
+    <h1>Alumnum.com | Hello <%= @user_to.first_name %>,</h1>
     <p>
       A new user has joined our site with the skills you are interested in:<br />
-      <%="#{@user_tagged.first_name} #{@user_tagged.last_name}"%>
+      <%="#{@user_tagged.first_name} #{@user_tagged.last_name} | #{@user_tagged.email}"%>
     </p>
   </body>
 </html>

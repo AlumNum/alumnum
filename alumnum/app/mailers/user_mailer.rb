@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
 		@user_to = user_to
 		@user_tagged = user_tagged
 		url = 'http://example.com/login'
-		mail(:to => @user_to.email, :subject => 'Welcome to Alumnum, new user')
+		mail(:to => @user_to.email, :subject => 'New Users Have Joined Our Site')
 	end
 
 end
