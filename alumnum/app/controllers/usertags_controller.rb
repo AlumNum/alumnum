@@ -9,7 +9,7 @@ class UsertagsController < ApplicationController
 
   # GET /usertags/1
   # GET /usertags/1.json
-  def show
+  def show  
   end
 
   # GET /usertags/new
@@ -25,11 +25,32 @@ class UsertagsController < ApplicationController
   # POST /usertags.json
   def create
     @usertag = Usertag.new(usertag_params)
-    @usertag.alum = current_user
+    if current_user.type == 'Alum'
+      @usertag.alum = current_user
+       @profile = Profile.find(current_alum_profile_id)
+    else
+      @usertag.employer = current_user
+    end  
     respond_to do |format|
       if @usertag.save
-        format.html { redirect_to @usertag, notice: 'Usertag was successfully created.' }
-        format.json { render :show, status: :created, location: @usertag }
+        #when a tag is added to Alum account
+        #byebug
+        if current_user.type == 'Alum'
+          #get all Usertags that have the tag_id of the tag being created
+          findTags = Usertag.where :tag_id => @usertag.tag_id
+          #iterate through each usertag and get user type
+          findTags.each do |tag|
+            #find user that usertag belongs to
+            usertype = User.find(tag.user_id)
+            #if the user is an employer, send them an email
+            if usertype.type == 'Employer'
+              UserMailer.alert_email(usertype, current_user).deliver
+            end  
+          end
+          format.html { redirect_to edit_profile_path(@profile), notice: 'Tag was successfully created.' }
+        else
+          format.html { redirect_to "/", notice: 'Tag was successfully created.' }
+        end
       else
         format.html { render :new }
         format.json { render json: @usertag.errors, status: :unprocessable_entity }
@@ -55,9 +76,17 @@ class UsertagsController < ApplicationController
   # DELETE /usertags/1.json
   def destroy
     @usertag.destroy
-    respond_to do |format|
-      format.html { redirect_to usertags_url, notice: 'Usertag was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.type == "Alum"
+      @profile = Profile.find(current_alum_profile_id)
+      respond_to do |format|
+        format.html { redirect_to edit_profile_path(@profile), notice: 'Usertag was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+      else
+      respond_to do |format|
+        format.html { redirect_to "/", notice: 'Usertag was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

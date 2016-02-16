@@ -1,8 +1,43 @@
 <h1>Editing Profile</h1>
 
+<div class="edit-profile-form col-md-3">
 <%= render 'form' %>
-<%= link_to 'New Resume Item', new_resume_item_path %>
-<%= link_to 'Q&A', new_qna_path %>
-<%= link_to 'Add Tags', new_usertag_path %>
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+</div>
+
+<div class="resume-qna-form col-md-3">
+<h3>Q&A </h3><br>
+<%= link_to 'Answer a Question ', new_qna_path %> to tell employers more about yourself
+<% @qnas.each do |q| %>
+<div class="qna-item-edit">
+<strong><%= q.question.question %></strong><br>
+<%=q.response %><br>
+<%= link_to 'Edit', edit_qna_path(q) %> • <%= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>
+<h3>Resume Items</h3><br>
+<%= link_to 'New Resume Item', new_resume_item_path %><br>
+<table>
+<% @resume.each do |r| %>
+<tr>
+	<td><%= r.title %></td> 
+
+	<td>&nbsp &nbsp  <%= link_to '• Edit ', edit_resume_item_path(r) %></td>
+	<td>&nbsp &nbsp<%= link_to '• Destroy', r, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+</tr>
+<% end %>
+</table>
+</div>
+
+<div class="edit-tags col-md-6">
+<h3>Tags</h3><br>
+<%= link_to 'Add Tags', new_usertag_path %><br>
+<% @usertags.each do |u| %>
+	<%= u.tag.skill_tag %>  <%= link_to '(Remove)', u, method: :delete, data: {confirm: 'Are you sure?'} %> <br>
+<% end %>
+</div>
+
+
+
+
+

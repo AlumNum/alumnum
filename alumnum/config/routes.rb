@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :follows
   resources :tasks
   resources :usertags
   resources :tags
@@ -6,13 +7,14 @@ Rails.application.routes.draw do
   resources :questions
   resources :resume_items
   resources :profiles
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
    root 'static#index'
 
+   get '/follow' => 'followtags#new'
    get '/answers/new' => 'answers#new'
    post '/answers/create' => 'answers#create'
 

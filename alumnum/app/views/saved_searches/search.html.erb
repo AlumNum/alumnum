@@ -1,11 +1,12 @@
 <h1>Search results for for <%= params[:q] %></h1>
+
 <br><br>
 
 <div class="history col-md-2">
 <h2>Popular searches </h2>
 <ul>
 <% @history.each do |h| %>
-	<li><%= h.query %> - <%= h.count %></li>
+	<li><a href="/search?q=<%= h.query %>"> <%= h.query %> - <%= h.count %></a></li>
 <%end%>
 </ul>
 </div>
@@ -15,6 +16,32 @@
 <% @users_with_tag.each do |u| %>
 	<a href="/u/<%= u.user_id %>">
 	<%= "#{u.alum.first_name} #{u.alum.last_name}" %><br>
+	</a>
+<% end %>
+
+<% if @last_name_results.respond_to? :each %>
+	<% @last_name_results.each do |r| %>
+		<a href="/u/<%=r.id %>">
+		<%= "#{r.first_name} #{r.last_name}" %>
+		</a>
+	<% end %>
+<% elsif @last_name_results %>
+	<% r = @last_name_results %>
+	<a href="/u/<%=r.id %>">
+	<%= "#{r.first_name} #{r.last_name}" %>
+	</a>
+<% end %>
+
+<% if @first_name_results.respond_to? :each %>
+	<% @first_name_results.each do |r| %>
+		<a href="/u/<%=r.id %>">
+		<%= "#{r.first_name} #{r.last_name}" %>
+		</a>
+	<% end %>
+<% elsif @first_name_results %>
+	<% r = @first_name_results %>
+	<a href="/u/<%=r.id %>">
+	<%= "#{r.first_name} #{r.last_name}" %>
 	</a>
 <% end %>
 

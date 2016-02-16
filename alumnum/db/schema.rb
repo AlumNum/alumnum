@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213194055) do
+ActiveRecord::Schema.define(version: 20160216164920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20160213194055) do
 
   add_index "answers", ["profile_id"], name: "index_answers_on_profile_id", using: :btree
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "follows", ["tag_id"], name: "index_follows_on_tag_id", using: :btree
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "headline"
@@ -44,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160213194055) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "attachment"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
@@ -83,13 +94,7 @@ ActiveRecord::Schema.define(version: 20160213194055) do
     t.string   "query"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "count",      default: 0
-  end
-
-  create_table "taglists", force: :cascade do |t|
-    t.string   "tag"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "count",      default: 1
   end
 
   create_table "tags", force: :cascade do |t|
@@ -116,12 +121,21 @@ ActiveRecord::Schema.define(version: 20160213194055) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "type"
     t.string   "status"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -139,9 +153,12 @@ ActiveRecord::Schema.define(version: 20160213194055) do
 
   add_foreign_key "answers", "profiles"
   add_foreign_key "answers", "questions"
+  add_foreign_key "follows", "tags"
+  add_foreign_key "follows", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "qnas", "questions"
   add_foreign_key "qnas", "users"
   add_foreign_key "resume_items", "users"
   add_foreign_key "usertags", "tags"
+  add_foreign_key "usertags", "users"
 end

@@ -27,10 +27,11 @@ class QnasController < ApplicationController
   def create
     @qna = Qna.new(qna_params)
     @qna.alum = current_user
+    @profile = Profile.find(current_alum_profile_id)
 
     respond_to do |format|
       if @qna.save
-        format.html { redirect_to @qna, notice: 'Qna was successfully created.' }
+        format.html { redirect_to edit_profile_path(@profile), notice: 'Q&A was successfully created.' }
         format.json { render :show, status: :created, location: @qna }
       else
         format.html { render :new }

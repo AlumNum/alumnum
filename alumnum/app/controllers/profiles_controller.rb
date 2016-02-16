@@ -13,6 +13,9 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.find_by_sql "select * from profiles, users, resume_items, usertags WHERE
     profiles.user_id = users.id AND resume_items.user_id = users.id AND usertags.user_id = users.id"
+
+    @users = User.all
+    
   end
 
   # GET /profiles/1
@@ -42,6 +45,10 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    @qnas = Qna.where(:user_id => current_user)
+    @resume = ResumeItem.where user_id: current_user
+    @usertags = Usertag.where user_id: current_user
+
   end
 
   # POST /profiles
@@ -92,6 +99,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:headline, :image_url, :bio, :view_count, :status, :twitter, :github, :peronal_site, :linkedin, :image)
+      params.require(:profile).permit(:headline, :image_url, :bio, :view_count, :status, :twitter, :github, :peronal_site, :linkedin, :image, :attachment)
     end
 end
