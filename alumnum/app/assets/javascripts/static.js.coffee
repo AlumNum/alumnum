@@ -4,3 +4,4 @@
 jQuery ->
 	$("#status").dataTable
 	sPaginationType: "full_numbers"
+
