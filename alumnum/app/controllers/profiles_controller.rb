@@ -11,23 +11,8 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.all
-    # @users = User.where(type: "Alum" id: user_id)
-  
-    # @this_user = User.where(id: Profile.user_id)
-    # @fname = @this_user.first_name
-    # @this_profile = Profile.where(user_id: User.id)
-    @users = User.all
-
-    # def user_names
-      
-    # end
-
-    # this_user = User.first_name
-
-# you need through in your association
-# so that you can do Profile.User.first_name
-
+    @profiles = Profile.find_by_sql "select * from profiles, users, resume_items, usertags WHERE
+    profiles.user_id = users.id AND resume_items.user_id = users.id AND usertags.user_id = users.id"
   end
 
   # GET /profiles/1
