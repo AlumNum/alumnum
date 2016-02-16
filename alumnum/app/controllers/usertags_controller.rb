@@ -9,7 +9,7 @@ class UsertagsController < ApplicationController
 
   # GET /usertags/1
   # GET /usertags/1.json
-  def show
+  def show  
   end
 
   # GET /usertags/new
@@ -51,9 +51,6 @@ class UsertagsController < ApplicationController
         else
           format.html { redirect_to "/", notice: 'Tag was successfully created.' }
         end
-
-        
-        
       else
         format.html { render :new }
         format.json { render json: @usertag.errors, status: :unprocessable_entity }

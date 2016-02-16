@@ -1,26 +1,71 @@
-<srcipt src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></srcipt>
-<h1>Alum Num: Better than LinkedIn. But what isnt?</h1>
 
-<canvas id="myChart" width="400" height="400"></canvas>
+<h1>Alum Num: Premier Employment</h1>
+
+<div id="jsvars">
+<!-- This is a hidden div that passed data to Javascript so it can make the chart. -->
+
+<div id="s0q">
+<%=@searches[0].query %>
+</div>
+<div id="s0c">
+<%=@searches[0].count %>
+</div>
+
+<div id="s1q">
+<%=@searches[1].query %>
+</div>
+<div id="s1c">
+<%=@searches[1].count %>
+</div>
+
+<div id="s2q">
+<%=@searches[2].query %>
+</div>
+<div id="s2c">
+<%=@searches[2].count %>
+</div>
+
+<div id="s3q">
+<%=@searches[3].query %>
+</div>
+<div id="s3c">
+<%=@searches[3].count %>
+</div>
+
+<div id="s4q">
+<%=@searches[4].query %>
+</div>
+<div id="s4c">
+<%=@searches[4].count %>
+</div>
+
+<div id="s5q">
+Other
+</div>
+<div id="s5c">
+<%=SavedSearch.count - 5 %>
+</div>
+
+</div>
+
 
 <% if current_user %>
 <% if current_user.type == 'Admin' %>
 
 <div class="search-analytics">
-<h3>Most Popular Searches </h3>
-<% @searches.each do |s| %>
-  <%= "#{s.query} - #{s.count} times" %><br>
-<% end %>
+<div class="chart">
+<h3> Most Popular Searches</h3>
+<canvas id="canvas" width="400" height="400"></canvas>
+</div>
 </div>
 <table>
-
-<p> Admin User status panel </p>
+<br />
+<h3> Admin User status panel </h3>
 <table id="status">
   <thead>
     <tr>
       <th>Name</th>
       <th>Status</th>
-      <th>Profile View Count</th>
     </tr>
   </thead>
 
@@ -57,20 +102,22 @@
 <table id="status">
   <thead>
     <tr>
-      <th>User ID</th>
       <th>Name</th>
-      <th>Tag</th>
+      <th>Skill(s)</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @employer_limit_items.each do |tag| %>
-    <% thisUser = User.find(tag.user_id) %>
-    <% tagName = Tag.find(tag.tag_id) %>
+    <% @employer_limit_items.each do |user| %>
+    <% thisUsersTags = Usertag.where(user_id: user.id) %>
+    <% #thisProfile = Profile.find(tag.tag_id) %>
       <tr>
-        <td col width="80"><%= tag.user_id %> </td>
-        <td col width="120"><%= "#{thisUser.first_name} #{thisUser.last_name}" %> </td>
-        <td col width="80"><%= tagName.skill_tag %> </td>
+        <td col width="120"><%= "#{user.first_name} #{user.last_name}" %> </td>
+        <td col width="220"><% thisUsersTags.each do |tag| %> 
+                <% tag = Tag.find(tag.tag_id) %>
+                <%= tag.skill_tag + "   |  "%>
+                <% end %> 
+                </td>
       </tr>
     <% end %>
       
@@ -97,5 +144,4 @@
 <% end %>
 <% end %>
 
-<!--this is to test out git-->
 

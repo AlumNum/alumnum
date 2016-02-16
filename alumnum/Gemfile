@@ -3,7 +3,7 @@ source "https://rubygems.org"
 
 source 'https://rubygems.org'
 
-
+gem 'chart-js-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use postgresql as the database for Active Record
@@ -27,24 +27,20 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'kaminari'
-
 gem 'paperclip', '~> 4.3', '>= 4.3.5'
-
 gem 'carrierwave'
-
+gem 'omniauth'
+gem 'omniauth-linkedin'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
  gem 'unicorn'
- 
-
- 
+ gem 'redcarpet'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -55,6 +51,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'faker'
   gem 'foreman'
+  gem 'pry-remote'
 end
 
 group :development do
