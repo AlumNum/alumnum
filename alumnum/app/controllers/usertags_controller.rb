@@ -25,11 +25,32 @@ class UsertagsController < ApplicationController
   # POST /usertags.json
   def create
     @usertag = Usertag.new(usertag_params)
-    @usertag.alum = current_user
+    if current_user.type == 'Alum'
+      @usertag.alum = current_user
+    else
+      @usertag.employer = current_user
+    end  
     respond_to do |format|
       if @usertag.save
+        #when a tag is added to Alum account
+        #byebug
+        if current_user.type == 'Alum'
+          #get all Usertags that have the tag_id of the tag being created
+          findTags = Usertag.where :tag_id => @usertag.tag_id
+          #iterate through each usertag and get user type
+          findTags.each do |tag|
+            #find user that usertag belongs to
+            usertype = User.find(tag.user_id)
+            #if the user is an employer, send them an email
+            if usertype.type == 'Employer'
+              UserMailer.alert_email(usertype, current_user).deliver
+            end  
+          end
+        end
         format.html { redirect_to @usertag, notice: 'Usertag was successfully created.' }
         format.json { render :show, status: :created, location: @usertag }
+        
+        
       else
         format.html { render :new }
         format.json { render json: @usertag.errors, status: :unprocessable_entity }
