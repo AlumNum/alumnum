@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :follows
   resources :tasks
   resources :usertags
   resources :tags
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'static#index'
 
+   get '/follow' => 'followtags#new'
    get '/answers/new' => 'answers#new'
    post '/answers/create' => 'answers#create'
 
