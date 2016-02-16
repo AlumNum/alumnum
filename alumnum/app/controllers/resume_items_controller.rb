@@ -27,10 +27,11 @@ class ResumeItemsController < ApplicationController
   def create
     @resume_item = ResumeItem.new(resume_item_params)
     @resume_item.alum = current_user
+    @profile = Profile.find(current_alum_profile_id)
     
     respond_to do |format|
       if @resume_item.save
-        format.html { redirect_to @resume_item, notice: 'Resume item was successfully created.' }
+        format.html { redirect_to edit_profile_path(@profile), notice: 'Resume item was successfully created.' }
         format.json { render :show, status: :created, location: @resume_item }
       else
         format.html { render :new }

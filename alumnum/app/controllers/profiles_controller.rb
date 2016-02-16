@@ -11,14 +11,16 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.all
+    @profiles = Profile.find_by_sql "SELECT * FROM profiles, users WHERE profiles.user_id = users.id;"
     # @users = User.where(type: "Alum" id: user_id)
   
     # @this_user = User.where(id: Profile.user_id)
     # @fname = @this_user.first_name
     # @this_profile = Profile.where(user_id: User.id)
+
     @users = User.all
     #@usertags = Usertag.where user_id: this_user_id
+
     # def user_names
       
     # end
@@ -57,6 +59,10 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    @qnas = Qna.where(:user_id => current_user)
+    @resume = ResumeItem.where user_id: current_user
+    @usertags = Usertag.where user_id: current_user
+
   end
 
   # POST /profiles

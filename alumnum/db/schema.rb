@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20160215222750) do
   add_index "answers", ["profile_id"], name: "index_answers_on_profile_id", using: :btree
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
+  create_table "follows", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "follows", ["tag_id"], name: "index_follows_on_tag_id", using: :btree
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.string   "headline"
     t.string   "image_url"
@@ -141,6 +151,8 @@ ActiveRecord::Schema.define(version: 20160215222750) do
 
   add_foreign_key "answers", "profiles"
   add_foreign_key "answers", "questions"
+  add_foreign_key "follows", "tags"
+  add_foreign_key "follows", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "qnas", "questions"
   add_foreign_key "qnas", "users"
