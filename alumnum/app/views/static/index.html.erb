@@ -1,5 +1,5 @@
 
-<h1>Alum Num: Better than LinkedIn. But what isnt?</h1>
+<h1>Alum Num: Premier Employment</h1>
 
 <div id="jsvars">
 
@@ -58,14 +58,13 @@ Other
 </div>
 </div>
 <table>
-
-<p> Admin User status panel </p>
+<br />
+<h3> Admin User status panel </h3>
 <table id="status">
   <thead>
     <tr>
       <th>Name</th>
       <th>Status</th>
-      <th>Profile View Count</th>
     </tr>
   </thead>
 
@@ -73,8 +72,7 @@ Other
     <% @user_admin.each do |user| %>
       <tr>
         <td><%= "#{user.first_name} #{user.last_name}" %> </td>
-        <td col width="80"><%= user.status %></td>
-       
+        <td col width="120"><%= user.status %></td>
       </tr>
     <% end %>
       
