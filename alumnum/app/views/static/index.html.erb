@@ -1,4 +1,4 @@
-<h1>Alum Num: Better than LinkedIn. But what isnt?</h1>
+<h1>Alum Num: Premier Employment</h1>
 
 <% if current_user %>
 <% if current_user.type == 'Admin' %>
@@ -10,14 +10,13 @@
 <% end %>
 </div>
 <table>
-
-<p> Admin User status panel </p>
+<br />
+<h3> Admin User status panel </h3>
 <table id="status">
   <thead>
     <tr>
       <th>Name</th>
       <th>Status</th>
-      <th>Profile View Count</th>
     </tr>
   </thead>
 
@@ -25,9 +24,7 @@
     <% @user_admin.each do |user| %>
       <tr>
         <td><%= "#{user.first_name} #{user.last_name}" %> </td>
-        <td col width="80"><%= user.status %></td>
-        <% profile = Profile.find(user_id = user.id) %>
-        <td><%= profile.view_count %></td>
+        <td col width="120"><%= user.status %></td>
       </tr>
     <% end %>
       

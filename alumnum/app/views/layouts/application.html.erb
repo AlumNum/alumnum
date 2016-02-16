@@ -52,17 +52,18 @@
             <li class="active">
               <a href="/profiles/<%=current_alum_profile_id %>">My Profile </a>
             </li>
-          <% else %>
+          <% elsif is_alum? %>
             <li class="active">
              <a href="/profiles/new">Create Profile</a>
             </li>
-         <% end %>
+          <% else %>
+
+          <% end %>
         
 
-          <li>
-      Hello, <%= current_user.first_name + " " + current_user.last_name %>
+          <li class="active"><a href="#">Hello, <strong><%= current_user.first_name + " " + current_user.last_name %></strong><span class="sr-only">(current)</span></a>
          </li>
-
+        
 
 
         <% else %>
@@ -90,13 +91,6 @@
         </li>
         -->
       </ul>
-
-
-      <%= form_tag("/search", method: "get") do %>
-        <%= label_tag(:q, "Search for:") %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search") %>
-      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
@@ -117,6 +111,13 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+
+      <%= form_tag("/search", method: "get") do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+      
 
 <!-- End Bootstrap nav bar -->
 
