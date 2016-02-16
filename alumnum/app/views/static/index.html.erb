@@ -28,9 +28,13 @@
     <% @user_admin.each do |user| %>
       <tr>
         <td><%= "#{user.first_name} #{user.last_name}" %> </td>
-        <td col width="80"><%= user.status %></td>
-        <% profile = Profile.find(user_id = user.id) %>
-        <td><%= profile.view_count %></td>
+		<% if (Profile.where(user_id: user.id)) %>
+			<% profile = Profile.where(user_id: user.id) %>	
+			<td col width="80"><%= user.status %></td>
+			<td><%= profile.view_count %></td>
+		<% else %>
+			<td> Incomplete Data </td>
+		<% end %>
       </tr>
     <% end %>
       
