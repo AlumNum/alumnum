@@ -11,6 +11,7 @@ def index
 	@searches = SavedSearch.order(count: :desc).limit(5)
 	@user_admin = Alum.page(params[:page]).per(15)
 	@employer_limit_items = Usertag.page(params[:page]).per(15)
+
 	#@profile = Profile.find_by :user_id => params[:id]
 
 end

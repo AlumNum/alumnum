@@ -52,6 +52,8 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    chart-js-rails (0.0.9)
+      railties (> 3.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -222,6 +224,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   byebug
   carrierwave
+  chart-js-rails
   coffee-rails (~> 4.1.0)
   devise
   faker

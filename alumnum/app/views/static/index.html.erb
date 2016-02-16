@@ -1,18 +1,61 @@
 
 <h1>Alum Num: Premier Employment</h1>
 
-<srcipt src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></srcipt>
+<div id="jsvars">
 
-<canvas id="myChart" width="400" height="400"></canvas>
+
+<div id="s0q">
+<%=@searches[0].query %>
+</div>
+<div id="s0c">
+<%=@searches[0].count %>
+</div>
+
+<div id="s1q">
+<%=@searches[1].query %>
+</div>
+<div id="s1c">
+<%=@searches[1].count %>
+</div>
+
+<div id="s2q">
+<%=@searches[2].query %>
+</div>
+<div id="s2c">
+<%=@searches[2].count %>
+</div>
+
+<div id="s3q">
+<%=@searches[3].query %>
+</div>
+<div id="s3c">
+<%=@searches[3].count %>
+</div>
+
+<div id="s4q">
+<%=@searches[4].query %>
+</div>
+<div id="s4c">
+<%=@searches[4].count %>
+</div>
+
+<div id="s5q">
+Other
+</div>
+<div id="s5c">
+<%=SavedSearch.count - 5 %>
+</div>
+
+</div>
 
 <% if current_user %>
 <% if current_user.type == 'Admin' %>
 
 <div class="search-analytics">
-<h3>Most Popular Searches </h3>
-<% @searches.each do |s| %>
-  <%= "#{s.query} - #{s.count} times" %><br>
-<% end %>
+<div class="chart">
+<h3> Most Popular Searches</h3>
+<canvas id="canvas" width="400" height="400"></canvas>
+</div>
 </div>
 <table>
 <br />
