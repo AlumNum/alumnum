@@ -18,6 +18,9 @@ class ProfilesController < ApplicationController
     # @fname = @this_user.first_name
     # @this_profile = Profile.where(user_id: User.id)
 
+    @users = User.all
+    #@usertags = Usertag.where user_id: this_user_id
+
     # def user_names
       
     # end
@@ -110,6 +113,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:headline, :image_url, :bio, :view_count, :status, :twitter, :github, :peronal_site, :linkedin, :image)
+      params.require(:profile).permit(:headline, :image_url, :bio, :view_count, :status, :twitter, :github, :peronal_site, :linkedin, :image, :attachment)
     end
 end
