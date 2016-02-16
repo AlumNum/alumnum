@@ -14,6 +14,7 @@ Rails.application.configure do
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
+
   }
 
 
@@ -39,7 +40,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # Sets mailer default settings
+<<<<<<< HEAD
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+=======
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+>>>>>>> 874010c41b8287bc40c5fa739559ea4b722cf3b2
 
 
   # Don't care if the mailer can't send.
