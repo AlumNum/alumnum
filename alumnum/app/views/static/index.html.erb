@@ -95,20 +95,22 @@ Other
 <table id="status">
   <thead>
     <tr>
-      <th>User ID</th>
       <th>Name</th>
-      <th>Tag</th>
+      <th>Skill(s)</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @employer_limit_items.each do |tag| %>
-    <% thisUser = User.find(tag.user_id) %>
-    <% tagName = Tag.find(tag.tag_id) %>
+    <% @employer_limit_items.each do |user| %>
+    <% thisUsersTags = Usertag.where(user_id: user.id) %>
+    <% #thisProfile = Profile.find(tag.tag_id) %>
       <tr>
-        <td col width="80"><%= tag.user_id %> </td>
-        <td col width="120"><%= "#{thisUser.first_name} #{thisUser.last_name}" %> </td>
-        <td col width="80"><%= tagName.skill_tag %> </td>
+        <td col width="120"><%= "#{user.first_name} #{user.last_name}" %> </td>
+        <td col width="220"><% thisUsersTags.each do |tag| %> 
+                <% tag = Tag.find(tag.tag_id) %>
+                <%= tag.skill_tag + "   |  "%>
+                <% end %> 
+                </td>
       </tr>
     <% end %>
       
