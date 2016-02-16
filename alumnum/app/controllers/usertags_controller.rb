@@ -27,6 +27,7 @@ class UsertagsController < ApplicationController
     @usertag = Usertag.new(usertag_params)
     if current_user.type == 'Alum'
       @usertag.alum = current_user
+       @profile = Profile.find(current_alum_profile_id)
     else
       @usertag.employer = current_user
     end  
@@ -46,9 +47,10 @@ class UsertagsController < ApplicationController
               UserMailer.alert_email(usertype, current_user).deliver
             end  
           end
+          format.html { redirect_to edit_profile_path(@profile), notice: 'Tag was successfully created.' }
+        else
+          format.html { redirect_to "/", notice: 'Tag was successfully created.' }
         end
-        format.html { redirect_to @usertag, notice: 'Usertag was successfully created.' }
-        format.json { render :show, status: :created, location: @usertag }
       else
         format.html { render :new }
         format.json { render json: @usertag.errors, status: :unprocessable_entity }
@@ -74,9 +76,17 @@ class UsertagsController < ApplicationController
   # DELETE /usertags/1.json
   def destroy
     @usertag.destroy
-    respond_to do |format|
-      format.html { redirect_to usertags_url, notice: 'Usertag was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.type == "Alum"
+      @profile = Profile.find(current_alum_profile_id)
+      respond_to do |format|
+        format.html { redirect_to edit_profile_path(@profile), notice: 'Usertag was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+      else
+      respond_to do |format|
+        format.html { redirect_to "/", notice: 'Usertag was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
