@@ -67,7 +67,8 @@
 
         <% else %>
           <li class="active">
-          <%= link_to('Login', new_user_session_path)  %>  
+          <%= link_to('Login', new_user_session_path)  %> 
+          <%= link_to('Sign in with Linkedin', user_omniauth_authorize_path(:linkedin))  %>
           </li>
 
 
