@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: alumnum
-  username: jnorr_psql
+  username: <%= ENV['ALUMNUM_DATABASE_USERNAME'] %>
   password: <%= ENV['ALUMNUM_DATABASE_PASSWORD'] %>

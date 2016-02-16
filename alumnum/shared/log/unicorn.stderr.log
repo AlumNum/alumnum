@@ -20,3 +20,23 @@ I, [2016-02-13T18:40:24.556726 #1419]  INFO -- : worker=0 spawned pid=1419
 I, [2016-02-13T18:40:24.556924 #1419]  INFO -- : worker=0 ready
 I, [2016-02-13T18:40:24.558264 #1421]  INFO -- : worker=1 spawned pid=1421
 I, [2016-02-13T18:40:24.558718 #1421]  INFO -- : worker=1 ready
+/home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:195:in `pid=': Already running on PID:1416 (or pid=/home/jnorr/code/alumnum/alumnum/shared/pids/unicorn.pid is stale) (ArgumentError)
+	from /home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:127:in `start'
+	from /home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/bin/unicorn:126:in `<top (required)>'
+	from /home/jnorr/.rbenv/versions/2.2.3/bin/unicorn:23:in `load'
+	from /home/jnorr/.rbenv/versions/2.2.3/bin/unicorn:23:in `<main>'
+/home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:195:in `pid=': Already running on PID:1416 (or pid=/home/jnorr/code/alumnum/alumnum/shared/pids/unicorn.pid is stale) (ArgumentError)
+	from /home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:127:in `start'
+	from /home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/bin/unicorn:126:in `<top (required)>'
+	from /home/jnorr/.rbenv/versions/2.2.3/bin/unicorn:23:in `load'
+	from /home/jnorr/.rbenv/versions/2.2.3/bin/unicorn:23:in `<main>'
+/home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:195:in `pid=': Already running on PID:1416 (or pid=/home/jnorr/code/alumnum/alumnum/shared/pids/unicorn.pid is stale) (ArgumentError)
+	from /home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:127:in `start'
+	from /home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/bin/unicorn:126:in `<top (required)>'
+	from /home/jnorr/.rbenv/versions/2.2.3/bin/unicorn:23:in `load'
+	from /home/jnorr/.rbenv/versions/2.2.3/bin/unicorn:23:in `<main>'
+/home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:195:in `pid=': Already running on PID:1416 (or pid=/home/jnorr/code/alumnum/alumnum/shared/pids/unicorn.pid is stale) (ArgumentError)
+	from /home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:127:in `start'
+	from /home/jnorr/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/unicorn-5.0.1/bin/unicorn:126:in `<top (required)>'
+	from /home/jnorr/.rbenv/versions/2.2.3/bin/unicorn:23:in `load'
+	from /home/jnorr/.rbenv/versions/2.2.3/bin/unicorn:23:in `<main>'
