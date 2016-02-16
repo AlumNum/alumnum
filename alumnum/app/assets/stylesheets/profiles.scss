@@ -12,6 +12,11 @@
 //   }
 // }
 
+.master_container{
+	max-width: 1000px;
+	margin: 10px;
+}
+
 .alumni_heading{
 	font-family: Baskerville;
 	font-size:40px;
@@ -23,7 +28,7 @@
 
 .profiles_container{
 	border: 3px solid green;
-	width: 65%;
+	width: 70%;
 	height: 180px;
 	padding:15px;
 	display:inline;
