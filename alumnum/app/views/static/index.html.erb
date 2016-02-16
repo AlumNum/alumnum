@@ -23,17 +23,15 @@
 
   <tbody>
     <% @user_admin.each do |user| %>
-    <%# thisProfile = find_by_user(user) %>
       <tr>
         <td><%= "#{user.first_name} #{user.last_name}" %> </td>
         <td col width="80"><%= user.status %></td>
-        <%#### profile = Profile.find(user_id = user.id) %>
-        <td><%#= thisProfile.view_count %></td>
+        <% profile = Profile.find(user_id = user.id) %>
+        <td><%= profile.view_count %></td>
       </tr>
     <% end %>
       
   </tbody>
-	
 </table>
 
 
