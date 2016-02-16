@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-attr_accessor :id
+
 
 def find_by_user
     user_id = params[:id]
@@ -11,7 +11,8 @@ def index
 	@searches = SavedSearch.order(count: :desc).limit(5)
 	@user_admin = Alum.page(params[:page]).per(15)
 	@employer_limit_items = Alum.page(params[:page]).per(15)
-
+	@usertags = Usertag.all
+	@tags = Tag.all
 	#@profile = Profile.find_by :user_id => params[:id]
 
 end

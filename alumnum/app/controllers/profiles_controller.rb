@@ -11,25 +11,11 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.find_by_sql "SELECT * FROM profiles, users WHERE profiles.user_id = users.id;"
-    # @users = User.where(type: "Alum" id: user_id)
-  
-    # @this_user = User.where(id: Profile.user_id)
-    # @fname = @this_user.first_name
-    # @this_profile = Profile.where(user_id: User.id)
+    @profiles = Profile.find_by_sql "select * from profiles, users, resume_items, usertags WHERE
+    profiles.user_id = users.id AND resume_items.user_id = users.id AND usertags.user_id = users.id"
 
     @users = User.all
-    #@usertags = Usertag.where user_id: this_user_id
-
-    # def user_names
-      
-    # end
-
-    # this_user = User.first_name
-
-# you need through in your association
-# so that you can do Profile.User.first_name
-
+    
   end
 
   # GET /profiles/1
@@ -45,6 +31,8 @@ class ProfilesController < ApplicationController
     @qnas = Qna.where user_id: this_user_id
   
     @usertags = Usertag.where user_id: this_user_id
+
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, filter_html: true)
 
   end
 

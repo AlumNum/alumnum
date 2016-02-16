@@ -3,6 +3,141 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// index styling
+
+
+// @media all and (max-width: 699px) {
+//   body {
+//     background: #ccc !important;
+//   }
+// }
+
+.master_container{
+	max-width: 1000px;
+	margin: 10px;
+}
+
+.alumni_heading{
+	font-family: Baskerville;
+	font-size:40px;
+	font-weight: 599;
+	text-transform: uppercase;
+	color: #700000 ;
+	text-align: center;
+}
+
+.profiles_container{
+	border: 3px solid green;
+	width: 70%;
+	height: 180px;
+	padding:15px;
+	display:inline;
+	position:relative;
+	float:right;
+	margin: 10px;
+
+}
+
+.sidebar_panel{
+	border: 2px solid yellow;
+	height:80%;
+	width: 20%;
+	display:inline;
+	position:relative;
+	float:left;
+}
+
+.card_image{
+	border: 3px solid orange;
+	float:left;
+    width: 140px;
+    height: 140px;
+    display:inline;
+	position:relative;
+    border-radius: 50%;
+    // position:relative;
+    // left:-15px;
+    // top: 10px;
+}
+
+.card_name{
+	border: 3px solid red;
+	width: 80%;
+	height: 140px;
+	display:inline;
+	position:relative;
+	float: right;
+	// right: -100px;
+	// left:75px;
+	// top: 6px;
+}
+
+.card_headline{
+	border: 3px solid purple;
+	width: 370px;
+	height: 20px;
+	font-family: Georgia;
+	font-size:32px;
+	
+}
+
+.card_resumeitems{
+	border: 3px solid blue;
+	width: 370px;
+	height: 50px;
+	font-family: Georgia;
+	font-size:32px;
+}
+
+
+h2{
+	font-family: Georgia;
+	text-transform: uppercase;
+	line-height:0.9;
+	font-size: 27px;
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+}
+
+p{
+	font-family: Hoefler Text;
+
+}
+
+
+
+
+
+
+// .card_profile_userstags{
+// 	position:absolute;
+// 	border: 3px solid pink;
+// 	width: 250px;
+// 	height: 100px;
+// 	font-family: Georgia;
+// 	font-size:32px;
+// 	top:82px;
+// 	right: 40px;
+// }
+
+h3{
+	font-family: Cochin;
+	color: #006666;
+	font-weight:bold;
+
+}
+h4{
+	font-family: Chalkduster;
+}
+
+
+
+
+
+
+//
+
 .sidebar{
 	border: 1px solid black;
 }
