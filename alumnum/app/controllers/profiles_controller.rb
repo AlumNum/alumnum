@@ -32,6 +32,8 @@ class ProfilesController < ApplicationController
   
     @usertags = Usertag.where user_id: this_user_id
 
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, filter_html: true)
+
   end
 
   # GET /profiles/new
