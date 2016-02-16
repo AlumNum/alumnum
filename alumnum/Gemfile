@@ -43,6 +43,8 @@ gem 'carrierwave'
 
  gem 'foreman'
 
+ gem 'redcarpet'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
