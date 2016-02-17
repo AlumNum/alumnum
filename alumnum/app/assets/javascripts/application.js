@@ -17,3 +17,14 @@
 //= requre bootstrap-sprockets
 //= require Chart
 //= require_tree .
+
+console.log("jquery works");
+
+$(document).ready(function(){
+
+	var dropDown = $(".dropdown");
+	dropDown.bind('click', function() {
+		 $(".navbar").toggle();
+	});
+
+})

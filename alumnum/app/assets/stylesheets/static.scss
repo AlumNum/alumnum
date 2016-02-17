@@ -12,12 +12,62 @@
 	float:right;
 }
 
+.bar {
+	height: 50pt;
+	width: 100%;
+	position: relative;
+	top: 300px;
+	background-color: rgba(0,0,0,0.5);
+	
+}
 
-// html {
-// 	background: url(http://officesnapshots.com/wp-content/uploads/2012/11/UrbanSystems_03.jpg) no-repeat center center fixed; 
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
+.bar p{
+  position: relative;
+  top: 40%;
+  left: 40%;
+  color: white;
+  font-family: 'Inconsolata', ;
+  font-size: 4em;
+}
 
-// }
+body {
+	background: url(http://officesnapshots.com/wp-content/uploads/2012/11/UrbanSystems_03.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.navbar{
+	display: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.menu {
+  position: relative;
+  padding-left: 1.25em;
+}
+.menu:before {
+content: "";
+  position: absolute;
+  // left: 10pt;
+  top: .25em;
+  width: 3em;
+  height: .35em;
+  background: white;
+  box-shadow: 
+    0 1.00em 0 0 white,
+    0 2.00em 0 0 white;
+}
+
+
+
+
+
+
+
+

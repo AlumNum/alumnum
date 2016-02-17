@@ -16,7 +16,7 @@ Tag.create(skill_tag: "Javascript")
 	Profile.create(headline: Faker::Book.title, bio: Faker::Hacker.say_something_smart, user_id: @alum.id)
 
 	2.times do
-	ResumeItem.create(title: Faker::University.name, heading: Faker::App.name, description: Faker::Hacker.say_something_smart, user_id: @alum.id, kind:"School")
+	ResumeItem.create(title: Faker::University.name, heading: Faker::App.name, description: Faker::Hacker.say_something_smart, user_id: 1, kind:"School")
 	end
 
 	Qna.create(question_id: 1, user_id: @alum.id, response: Faker::Hacker.say_something_smart)

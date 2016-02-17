@@ -1,5 +1,5 @@
 
-<h1>Alum Num: Premier Employment</h1>
+<!-- <h1>Alum Num: Premier Employment</h1> -->
 
 <div id="jsvars">
 <!-- This is a hidden div that passed data to Javascript so it can make the chart. -->
@@ -48,44 +48,61 @@ Other
 
 </div>
 
+<!-- homepage if user isnt logged in -->
+<!-- if user_signed_in? -->
+
+<div class="bar">
+<p class="alumnum"> Welcome to AlumNum</p>
+</div>
+
+<div class="dropdown">
+<a href="#menu" class="menu">
+</a>
+</div>
+
+
+
+
+<!-- ------------ -->
 
 <% if current_user %>
-<% if current_user.type == 'Admin' %>
+  <% if current_user.type == 'Admin' %>
 
-<div class="search-analytics">
-<div class="chart">
-<h3> Most Popular Searches</h3>
-<canvas id="canvas" width="400" height="400"></canvas>
-</div>
-</div>
-<table>
-<br />
-<h3> Admin User status panel </h3>
-<table id="status">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Status</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @user_admin.each do |user| %>
-      <tr>
-        <td><%= "#{user.first_name} #{user.last_name}" %> </td>
-        <td col width="120"><%= user.status %></td>
-      </tr>
+    <div class="search-analytics">
+    <div class="chart">
+    <h3> Most Popular Searches</h3>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    </div>
+    </div>
+    <table>
+    <br />
+    <h3> Admin User status panel </h3>
+    <table id="status">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @user_admin.each do |user| %>
+          <tr>
+            <td><%= "#{user.first_name} #{user.last_name}" %> </td>
+            <td col width="120"><%= user.status %></td>
+          </tr>
+        <% end %>
+          
+      </tbody>
+    </table>
+
+
+    	<%= page_entries_info @user_admin %>
+        <%= paginate @user_admin %>
+
     <% end %>
-      
-  </tbody>
-</table>
-
-
-	<%= page_entries_info @user_admin %>
-    <%= paginate @user_admin %>
-
-<% end %>
-<% end %>
+    <% end %>
 
 <% if current_user %>
 <% if current_user.type == 'Employer' %>

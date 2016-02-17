@@ -1,4 +1,4 @@
-# Place all the behaviors and hooks related to the matching controller here.
+### Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
@@ -46,4 +46,7 @@ jQuery ->
     }
 ]
 
-  myNewChart = new Chart($("#canvas").get(0).getContext("2d")).Pie(data)
+  myNewChart = new Chart($("#canvas").get(0).getContext("2d")).Pie(data) 
+
+  ###
+

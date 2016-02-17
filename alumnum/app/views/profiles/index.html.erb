@@ -43,13 +43,14 @@
 
 
 <% @profiles.each do |profile| %>
+
 <div class="profiles_container" >
 
   <div class="card_name">
-    <a href = "/profiles/<%=profile.id%>"><h2><%=profile.first_name + " " + profile.last_name%></h2></a>
-    <p><%= profile.headline %></p>
+    <a href = "/profiles/<%=profile.id%>"><h2><%=profile.alum.first_name + " " + profile.alum.last_name%></h2></a>
+  <!--   <p><%= profile.headline %></p>
     <p>Previously a <%= profile.heading.last + " "%> at <%= profile.title.last%> </p>
-    <p>Previously a <%= profile.heading + " "%> at <%= profile.title%> </p>
+    <p>Previously a <%= profile.heading + " "%> at <%= profile.title%> </p> -->
   </div>
   <div class="card_image">
     <%= image_tag profile.image.url(:medium) %>
