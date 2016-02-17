@@ -26,7 +26,11 @@ class User < ActiveRecord::Base
   end
 
   def status
-    Profile.find_by(:user_id => self.id).status
+   	if (Profile.find_by(:user_id => self.id).respond_to? :status)
+	 Profile.find_by(:user_id => self.id).status
+	else
+		"error"
+	end
   end
 
   def findprofile
