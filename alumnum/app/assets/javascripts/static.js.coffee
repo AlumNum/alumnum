@@ -47,3 +47,21 @@ jQuery ->
 ]
 
   myNewChart = new Chart($("#canvas").get(0).getContext("2d")).Pie(data)
+
+  jQuery ->
+  data2 =[
+    {
+        value: $("#seeking").text(),
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Seeking Employment"
+    },
+    {
+        value: $("#not_seeking").text(),
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Not Seeking Employment"
+    }
+]
+
+  seekingChart = new Chart($("#canvas2").get(0).getContext("2d")).Pie(data2)

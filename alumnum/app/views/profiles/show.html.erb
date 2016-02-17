@@ -6,7 +6,7 @@
 
     <h1><%= @alum.first_name + " " + @alum.last_name %></h1>
     <h3><%= @profile.headline %></h3>
-    <p><%= @markdown.render(@profile.bio).html_safe %></p>
+    <p><%= @markdown.render(@profile.bio).gsub("script","nice try").html_safe %></p>
     <% if @profile.attachment? %>
     <%= link_to "Download Resume Pdf", @profile.attachment.url %>
     <% end %>
@@ -67,7 +67,7 @@
       <h2><%= r.title %></h2>
       <p> <%= r.heading %><br>
       <%= r.start_date %> - <%= r.end_date %><br>
-      <%= @markdown.render(r.description).html_safe %><br>
+      <%= @markdown.render(r.description).gsub("script","scr1pt").html_safe %><br>
       </p>
     </div>
   <% end %>
