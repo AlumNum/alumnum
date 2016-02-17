@@ -46,6 +46,13 @@ Other
 <%=SavedSearch.count - 5 %>
 </div>
 
+<div id="seeking">
+<%= @seeking %>
+</div>
+<div id="not_seeking">
+<%= @not_seeking %>
+</div>
+
 </div>
 
 
@@ -56,6 +63,8 @@ Other
 <div class="chart">
 <h3> Most Popular Searches</h3>
 <canvas id="canvas" width="400" height="400"></canvas>
+<h3>Status Stats</h3>
+<canvas id="canvas2" width="400" height="400"></canvas>
 </div>
 </div>
 <table>

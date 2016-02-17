@@ -36,7 +36,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="pull-left"><img src="/path/to/image.png"></a>
+      
       <a class="navbar-brand" href="/">Home</a>
     </div>
 
@@ -73,6 +73,16 @@
           <li><%= link_to('Sign Up', new_user_registration_path)  %> </li>
           <li> <%= link_to('Sign Up with Linkedin', user_omniauth_authorize_path(:linkedin))  %> </li>
         <% end %>
+
+        <li class="search">
+
+        <%= form_tag("/search", method: "get", class: "search") do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+
+      </li>
       </ul>
 
        
