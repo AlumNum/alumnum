@@ -46,6 +46,13 @@ Other
 <%=SavedSearch.count - 5 %>
 </div>
 
+<div id="seeking">
+<%= @seeking %>
+</div>
+<div id="not_seeking">
+<%= @not_seeking %>
+</div>
+
 </div>
 
 
@@ -56,6 +63,8 @@ Other
 <div class="chart">
 <h3> Most Popular Searches</h3>
 <canvas id="canvas" width="400" height="400"></canvas>
+<h3>Status Stats</h3>
+<canvas id="canvas2" width="400" height="400"></canvas>
 </div>
 </div>
 <table>
@@ -109,8 +118,9 @@ Other
     <% @employer_limit_items.each do |user| %>
     <% thisUsersTags = Usertag.where(user_id: user.id) %>
     <% #thisProfile = Profile.find(tag.tag_id) %>
-      <tr>
-        <td col width="120"><%= "#{user.first_name} #{user.last_name}" %> </td>
+	<% thisUser = User.where(id: user.id) %>
+	  <tr>
+        <td col width="120"><%= "#{thisUser.first_name} #{thisUser.last_name}" %> </td>
         <td col width="220"><% thisUsersTags.each do |tag| %> 
                 <% tag = Tag.find(tag.tag_id) %>
                 <%= tag.skill_tag + "   |  "%>

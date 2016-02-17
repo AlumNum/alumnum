@@ -57,10 +57,10 @@
       </a>
       
       <p class= "label"><%= profile.headline %></p>
+      <p class= "resumeitem"><%= profile.status %></p>
 
     <% @resume_items = profile.resume_items %>
       <% @resume_items.each do |resume| %>
-        <p class= "resumeitem">Previously a <%= resume.heading.last + " "%> at <%= resume.title.last%> </p>
         <p class= "resumeitem">Previously a <%= resume.heading + " "%> at <%= resume.title%> </p>
     <%end%>
     </div>
