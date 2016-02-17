@@ -36,6 +36,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <a href="#" class="pull-left"><img src="/path/to/image.png"></a>
       <a class="navbar-brand" href="/">Home</a>
     </div>
 
@@ -45,11 +46,10 @@
         <li class="active"><a href="/profiles">Profiles <span class="sr-only">(current)</span></a></li>
       
    <% if current_user %>
-             <li class="active">
-         
+          <li class="active">
           <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
-           
           </li>
+
           <% if is_alum?  && current_alum_profile_id %>
             <li class="active">
               <a href="/profiles/<%=current_alum_profile_id %>">My Profile </a>
@@ -61,22 +61,19 @@
           <% else %>
 
           <% end %>
-        
-
+    
           <li class="active"><a href="#">Hello, <strong><%= current_user.first_name + " " + current_user.last_name %></strong><span class="sr-only">(current)</span></a>
          </li>
         
-
-
         <% else %>
           <li class="active">
           <%= link_to('Login', new_user_session_path)  %> 
-          <%= link_to('Sign in with Linkedin', user_omniauth_authorize_path(:linkedin))  %>
           </li>
 
-
+          <li><%= link_to('Sign Up', new_user_registration_path)  %> </li>
+          <li> <%= link_to('Sign Up with Linkedin', user_omniauth_authorize_path(:linkedin))  %> </li>
         <% end %>
-
+      </ul>
 
        
         <!--
@@ -93,7 +90,7 @@
           </ul>
         </li>
         -->
-      </ul>
+     
       <ul class="nav navbar-nav navbar-right">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
@@ -110,16 +107,15 @@
         </li>
         -->
       </ul>
+
+      
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 
-      <%= form_tag("/search", method: "get") do %>
-        <%= label_tag(:q, "Search for:") %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search") %>
-      <% end %>
+      
       
 
 <!-- End Bootstrap nav bar -->

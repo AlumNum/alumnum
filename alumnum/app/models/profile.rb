@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
 	# this was there before --
 	belongs_to :alum, foreign_key: "user_id"
-	
+	has_many :resume_items, through: :alum
 
 	#i wrote this in --
 	# belongs_to :user
