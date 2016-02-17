@@ -19,6 +19,10 @@ def index
 	@tags = Tag.all
 	#@profile = Profile.find_by :user_id => params[:id]
 
+	@featured = Alum.limit(1).order("RANDOM()").first
+	@featured_profile = Profile.find_by(:user_id => @featured.id)
+
+
 end
 
 end
