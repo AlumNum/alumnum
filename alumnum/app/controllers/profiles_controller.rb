@@ -40,7 +40,6 @@ class ProfilesController < ApplicationController
 
     @profile.alum = current_user
 
-
   end
 
   # GET /profiles/1/edit
@@ -59,7 +58,7 @@ class ProfilesController < ApplicationController
     #byebug
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html { redirect_to profiles_path, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }

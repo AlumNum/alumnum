@@ -61,7 +61,7 @@
 
     <% @resume_items = profile.resume_items %>
       <% @resume_items.each do |resume| %>
-        <p class= "resumeitem">Previously a <%= resume.heading + " "%> at <%= resume.title%> </p>
+        <p class= "resumeitem">Previously a <%= resume.title + " "%> at <%= resume.heading%> </p>
     <%end%>
     </div>
 
