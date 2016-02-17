@@ -46,7 +46,7 @@
 <div class="profiles_container" >
 
   <div class="card_name">
-    <a href = "/profiles/<%=profile.id%>"><h2><%=profile.first_name + " " + profile.last_name%></h2></a>
+    <a href = "/u/<%=profile.user_id%>"><h2><%=profile.first_name + " " + profile.last_name%></h2></a>
     <p><%= profile.headline %></p>
     <p>Previously a <%= profile.heading.last + " "%> at <%= profile.title.last%> </p>
     <p>Previously a <%= profile.heading + " "%> at <%= profile.title%> </p>
