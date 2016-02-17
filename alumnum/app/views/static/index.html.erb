@@ -60,7 +60,7 @@ Other
 </div>
 <table>
 <br />
-<h3> Admin User status panel </h3>
+<h3> Admin User Status Panel </h3>
 <table id="status">
   <thead>
     <tr>
@@ -72,15 +72,13 @@ Other
   <tbody>
     <% @user_admin.each do |user| %>
       <tr>
-        <td><%= "#{user.first_name} #{user.last_name}" %> </td>
-		<% if (Profile.where(user_id: user.id)) %>
-			<% profile = Profile.where(user_id: user.id) %>	
-			<td col width="80"><%= user.status %></td>
-			<td><%= profile.view_count %></td>
-		<% else %>
-			<td> Incomplete Data </td>
-		<% end %>
-      </tr>
+        <td col width="120"><%= "#{user.first_name} #{user.last_name}" %> </td>
+		<%# if (Profile.where(user_id: user.id)) %>
+			<%# profile = Profile.where(user_id: user.id) %>	
+		<td col width="320"><%= user.status %></td>
+			<%#= profile.view_count %>
+		<%# else %>
+	 </tr>
     <% end %>
       
   </tbody>
