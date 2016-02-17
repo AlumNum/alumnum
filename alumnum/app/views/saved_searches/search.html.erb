@@ -3,7 +3,7 @@
 <br><br>
 
 <div class="history col-md-2">
-<h2>Popular searches </h2>
+<h3>Popular searches </h3>
 <ul>
 <% @history.each do |h| %>
 	<li><a href="/search?q=<%= h.query %>"> <%= h.query %> - <%= h.count %></a></li>

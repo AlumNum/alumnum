@@ -1,7 +1,7 @@
 <% if !current_user %>
 <div class="staticbody"></div>
 <% end %>
-<h1>Alum Num: Premier Employment</h1>
+<h1>Alum Num: Outcomes View</h1>
 
 <div id="jsvars">
 <!-- This is a hidden div that passed data to Javascript so it can make the chart. -->
@@ -61,15 +61,19 @@ Other
 <% if current_user %>
 <% if current_user.type == 'Admin' %>
 
-<div class="search-analytics">
-<div class="chart">
+
+
+<div class="chart col-md-4">
 <h3> Most Popular Searches</h3>
 <canvas id="canvas" width="400" height="400"></canvas>
+</div>
+<div class="chart col-md-4">
 <h3>Status Stats</h3>
 <canvas id="canvas2" width="400" height="400"></canvas>
 </div>
-</div>
-<table>
+
+<div class="statuspanel col-md-4">
+
 <br />
 <h3> Admin User status panel </h3>
 <table id="status">
@@ -84,7 +88,7 @@ Other
     <% @user_admin.each do |user| %>
       <tr>
         <td><%= "#{user.first_name} #{user.last_name}" %> </td>
-        <td col width="120"><%= user.status %></td>
+        <td col width="220"><%= user.status %></td>
       </tr>
     <% end %>
       
@@ -97,6 +101,7 @@ Other
 
 <% end %>
 <% end %>
+</div>
 
 <% if current_user %>
 <% if current_user.type == 'Employer' %>

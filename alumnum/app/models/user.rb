@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
 
   end
 
+  def status
+    Profile.find_by(:user_id => self.id).status
+  end
+
   # after_create :user_mailer
   # def user_mailer
 	 #  UserMailer.welcome_email(self).deliver
