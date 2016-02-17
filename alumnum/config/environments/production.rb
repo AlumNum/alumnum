@@ -1,24 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-#mailer for production (needs editing)
- 
-  config.action_mailer.default_url_options = { :host => 'yoursite.herokuapp.com' }
-  
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
- 
-  config.action_mailer.smtp_settings = {
-     address: "smtp.gmail.com",
-      port: 587,
-      domain: ENV["GMAIL_DOMAIN"],
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: ENV["GMAIL_USERNAME"],
-      password: ENV["GMAIL_PASSWORD"]
-    }
-  
+  #mailer for production (needs editing)
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -81,7 +63,19 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default charset: 'utf-8'
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'jnorr', port: 3000 }
+  config.action_mailer.smtp_settings = {
+	  address: "smtp.gmail.com",
+	  port: 587,
+	  domain: ENV["GMAIL_DOMAIN"],
+	  enable_starttls_auto: true,
+	  user_name: ENV["GMAIL_USERNAME"],
+	  password: ENV["GMAIL_PASSWORD"],
+	  authentication: "plain"
+  }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true

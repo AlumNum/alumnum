@@ -76,7 +76,7 @@ Other
 <div class="statuspanel col-md-4">
 
 <br />
-<h3> Admin User status panel </h3>
+<h3> Admin User Status Panel </h3>
 <table id="status">
   <thead>
     <tr>
@@ -88,7 +88,7 @@ Other
   <tbody>
     <% @user_admin.each do |user| %>
       <tr>
-        <td><%= "#{user.first_name} #{user.last_name}" %> </td>
+		<td><%= "#{user.first_name} #{user.last_name}" %> </td>
         <td col width="220"><%= user.status %></td>
       </tr>
     <% end %>
@@ -115,7 +115,7 @@ Other
       <%= image_tag @featured_profile.image.url(:thumb) %>
     </div>
 
-    <div class="card_name">
+   <div class="card_name">
       <a href= "/u/<%=@featured.id%>">
         <h2><%=@featured.first_name + " " + @featured.last_name%></h2>
       </a>
@@ -147,4 +147,5 @@ Other
 <% end %>
 <% end %>
 
-</table>
+
+
