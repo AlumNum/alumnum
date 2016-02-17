@@ -11,11 +11,9 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.find_by_sql "select * from profiles, users, resume_items, usertags WHERE
-    profiles.user_id = users.id AND resume_items.user_id = users.id AND usertags.user_id = users.id"
-
+    @profiles = Profile.all
     @users = User.all
-    
+    @resumes = ResumeItem.all
   end
 
   # GET /profiles/1
