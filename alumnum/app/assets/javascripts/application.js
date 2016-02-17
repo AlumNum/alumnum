@@ -17,3 +17,4 @@
 //= requre bootstrap-sprockets
 //= require Chart
 //= require_tree .
+
