@@ -38,10 +38,10 @@ gem 'omniauth-linkedin'
 # Use Unicorn as the app server
  gem 'unicorn'
 
+
  gem 'foreman'
 
  gem 'redcarpet'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
