@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160216164920) do
     t.string   "status"
     t.string   "twitter"
     t.string   "github"
-    t.string   "peronal_site"
+    t.string   "personal_site"
     t.string   "linkedin"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
