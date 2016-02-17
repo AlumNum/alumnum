@@ -1,5 +1,8 @@
+<h1 class="white_header">AlumNum</h1>
+<% if !current_user %>
+<div class="staticbody"></div>
+<% end %>
 
-<h1>Alum Num: Premier Employment</h1>
 
 <div id="jsvars">
 <!-- This is a hidden div that passed data to Javascript so it can make the chart. -->
@@ -59,15 +62,19 @@ Other
 <% if current_user %>
 <% if current_user.type == 'Admin' %>
 
-<div class="search-analytics">
-<div class="chart">
+
+
+<div class="chart col-md-4">
 <h3> Most Popular Searches</h3>
 <canvas id="canvas" width="400" height="400"></canvas>
+</div>
+<div class="chart col-md-4">
 <h3>Status Stats</h3>
 <canvas id="canvas2" width="400" height="400"></canvas>
 </div>
-</div>
-<table>
+
+<div class="statuspanel col-md-4">
+
 <br />
 <h3> Admin User status panel </h3>
 <table id="status">
@@ -82,7 +89,7 @@ Other
     <% @user_admin.each do |user| %>
       <tr>
         <td><%= "#{user.first_name} #{user.last_name}" %> </td>
-        <td col width="120"><%= user.status %></td>
+        <td col width="220"><%= user.status %></td>
       </tr>
     <% end %>
       
@@ -95,43 +102,36 @@ Other
 
 <% end %>
 <% end %>
+</div>
 
 <% if current_user %>
 <% if current_user.type == 'Employer' %>
 <p> You are signed in as an Employer</p>
 
 
-<p>Shows Alum users & Their Tags:</p>
-<table id="status">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Skill(s)</th>
-    </tr>
-  </thead>
+  <div class="profiles_container" >
+  <h4>Featured alum:</h4>
+    <div class="card_image">
+      <%= image_tag @featured_profile.image.url(:thumb) %>
+    </div>
 
-  <tbody>
-    <% @employer_limit_items.each do |user| %>
-    <% thisUsersTags = Usertag.where(user_id: user.id) %>
-    <% #thisProfile = Profile.find(tag.tag_id) %>
-      <tr>
-        <td col width="120"><%= "#{user.first_name} #{user.last_name}" %> </td>
-        <td col width="220"><% thisUsersTags.each do |tag| %> 
-                <% tag = Tag.find(tag.tag_id) %>
-                <%= tag.skill_tag + "   |  "%>
-                <% end %> 
-                </td>
-      </tr>
-    <% end %>
+    <div class="card_name">
+      <a href= "/u/<%=@featured.id%>">
+        <h2><%=@featured.first_name + " " + @featured.last_name%></h2>
+      </a>
       
-  </tbody>
-  
-</table>
-  <%= page_entries_info @employer_limit_items %>
-  <%= paginate @employer_limit_items %>
-<br />
-<br />
-<br />
+      <p class= "label"><%= @featured_profile.headline %></p>
+
+    <% @resume_items = @featured_profile.resume_items %>
+      <% @resume_items.each do |resume| %>
+        <p class= "resumeitem">Previously a <%= resume.heading.last + " "%> at <%= resume.title.last%> </p>
+        <p class= "resumeitem">Previously a <%= resume.heading + " "%> at <%= resume.title%> </p>
+    <%end%>
+    </div>
+
+      
+  </div>
+
   <strong>Your Tags, Add tags to subscibe to email alerts</strong>
 <% @usertags = Usertag.where user_id: current_user.id %>  
 <% @usertags.each do |t| %>
@@ -147,5 +147,4 @@ Other
 <% end %>
 <% end %>
 
-<!--this is to test out git-->
-
+</table>
