@@ -8,8 +8,8 @@
     <h3><%= @profile.headline %></h3>
     <p><%= @markdown.render(@profile.bio).gsub("script","nice try").html_safe %></p>
     <% if @profile.attachment? %>
-    <%= link_to "Download Resume Pdf", @profile.attachment.url %>
-    <% end %>
+	<a href="<%=@profile.attachment %>">Download Resume (.pdf)</a>    
+<% end %>
 </div>
 
 <div class="sidebar col-md-2">
@@ -19,9 +19,6 @@
   <%= @profile.view_count %>
 </p>
 
-  <div class="pdf">
-    <%= link_to "Download resume (.pdf)" %>
-  </div>
 
   <p>
    <%= @alum.email %>
@@ -68,7 +65,7 @@
   <h1>Resume Items</h1>
   <% @resume.each do |r| %>
     <div class="resume-item <%=r.kind.downcase%>" >
-      <h2><%= r.title %></h2>
+      <h3><%= r.title %></h3>
       <p> <%= r.heading %><br>
       <%= r.start_date %> - <%= r.end_date %><br>
       <%= @markdown.render(r.description).gsub("script","scr1pt").html_safe %><br>
