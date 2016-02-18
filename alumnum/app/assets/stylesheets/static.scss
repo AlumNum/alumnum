@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.bar {
+	height: 50pt;
+	width: 100%;
+	position: relative;
+	top: 300px;
+	background-color: rgba(0,0,0,0.5);
+	
+}
+.bar p{
+  position: relative;
+  top: 40%;
+  left: 40%;
+  color: white;
+  font-family: 'Inconsolata', ;
+  font-size: 4em;
+}
+
 .white_header{
 	color: white;
 }
